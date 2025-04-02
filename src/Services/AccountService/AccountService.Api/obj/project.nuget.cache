@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "vIMMiY/wGa1NQ1rQNDQNCzDx1vnMB23QyPvZRvNdeqmBvQbgaqjpY8yvs7jKuam0gLHes8vTLp6HN2OkiSriLw==",
+  "success": true,
+  "projectFilePath": "/home/hamed-damavandi/Projects/microservice-fa/src/Services/AccountService/AccountService.Api/AccountService.Api.csproj",
+  "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/microsoft.aspnetcore.openapi/8.0.14/microsoft.aspnetcore.openapi.8.0.14.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/swashbuckle.aspnetcore/6.6.2/swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/swashbuckle.aspnetcore.swagger/6.6.2/swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.6.2/swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.6.2/swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
+  ],
+  "logs": []
+}
