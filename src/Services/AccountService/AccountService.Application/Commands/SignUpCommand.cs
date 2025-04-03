@@ -6,7 +6,12 @@ namespace AccountService.Application.Commands
 {
     public record SignUpCommand : IRequest<bool>
     {
-        [Required(ErrorMessage = "this is require!")]
-        public required string Name { get; set; }
+        public required string FullName { get; set; }
+
+        public required string Email { get; set; }
+
+        public required string Password { get; set; }  
+        
+        public required string ConfirmPassword { get; set; }  
     }
 }

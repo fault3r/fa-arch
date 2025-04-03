@@ -8,5 +8,8 @@
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../AccountService.Infrastructure/AccountService.Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>

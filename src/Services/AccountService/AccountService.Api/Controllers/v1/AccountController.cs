@@ -1,4 +1,4 @@
-using AccountService.Api.Controllers.BaseController;
+using AccountService.Api.Controllers;
 using AccountService.Application.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +8,7 @@ namespace AccountService.Api.Controllers.v1
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class AccountController : IBaseController
+    public class AccountController : BaseController
     {
         private readonly IMediator _mediator;
 

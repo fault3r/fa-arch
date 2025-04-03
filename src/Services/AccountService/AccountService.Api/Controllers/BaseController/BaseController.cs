@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AccountService.Api.Controllers.BaseController
+namespace AccountService.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IBaseController : ControllerBase
+    public class BaseController : ControllerBase
     {
+        
     }
 }
