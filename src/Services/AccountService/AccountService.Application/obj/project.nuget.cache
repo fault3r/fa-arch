@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "QW9n5AxcgpooqDS/hrIq2OWscTVavueVo5+5Ye2VWjf6NSPwPlTEBeMGjpQIw5hMRnvZDcZKgVl0INZHyaRmBg==",
+  "dgSpecHash": "+ZbUPVYdDyeJw5k4z+ViJz5h8/z/zHP1GUQ2bAUxWT7jtlO8WyMgnPDhJ7s0QHkOTrNAiLcz6EGd41sLJa1l/w==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/microservice-fa/src/Services/AccountService/AccountService.Application/AccountService.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/mediatr/11.0.0/mediatr.11.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

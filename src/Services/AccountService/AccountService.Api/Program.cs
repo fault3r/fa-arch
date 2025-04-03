@@ -1,8 +1,14 @@
+using AccountService.Application.CommandHandlers;
+using AccountService.Application.Commands;
+using MediatR;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddMediatR(typeof(SignUpCommandHandler).Assembly);
 
 var app = builder.Build();
 
