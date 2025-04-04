@@ -1,2 +1,1 @@
-@AccountService.Api_HostAddress = http://localhost:5176
-
+@AccountService.Api_HostAddress = http://localhost:5079

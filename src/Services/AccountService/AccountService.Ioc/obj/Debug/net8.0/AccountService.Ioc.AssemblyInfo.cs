@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccountService.Ioc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65dd46d832c7e6c44753be1c6e72ac54a1516d93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c196ec03dd9f5580345c14ab666cb1bd17d125c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccountService.Ioc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccountService.Ioc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
