@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "vIMMiY/wGa1NQ1rQNDQNCzDx1vnMB23QyPvZRvNdeqmBvQbgaqjpY8yvs7jKuam0gLHes8vTLp6HN2OkiSriLw==",
+  "dgSpecHash": "qGZb30Ci5Ira6CSGWevQUzeq0ylGbvGT1fLLOz+hm/OewslmJ5iQ8chYjEoo118H2Avp7V0P2In/buPWkEIcAg==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/microservice-fa/src/Services/AccountService/AccountService.Api/AccountService.Api.csproj",
   "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/mediatr/11.0.0/mediatr.11.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/11.1.0/mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.aspnetcore.openapi/8.0.14/microsoft.aspnetcore.openapi.8.0.14.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/swashbuckle.aspnetcore/6.6.2/swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/swashbuckle.aspnetcore.swagger/6.6.2/swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
