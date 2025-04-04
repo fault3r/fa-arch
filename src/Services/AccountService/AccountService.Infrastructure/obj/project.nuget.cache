@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "u03ddnaoXqj16BlU/R7VD2jaEw9/5sFIEWeApuyf93hwwQkwCTgkB3KVFr36ePaF9szh8LNl2mHspKbgEXwbnA==",
+  "dgSpecHash": "I1W7qb/eajRM8u1DnEZ5c0YA7U0MdcIYaNQRYpL3fQOR5/PjKWzgCXxa1naBUr2r3Hd7E+fuURQIhunJlz7o1Q==",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/microservice-fa/src/Services/AccountService/AccountService.Infrastructure/AccountService.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/asp.versioning.abstractions/8.1.0/asp.versioning.abstractions.8.1.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/asp.versioning.http/8.1.0/asp.versioning.http.8.1.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/asp.versioning.mvc/8.1.0/asp.versioning.mvc.8.1.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/asp.versioning.mvc.apiexplorer/8.1.0/asp.versioning.mvc.apiexplorer.8.1.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.3/microsoft.extensions.dependencyinjection.9.0.3.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.3/microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,11 +1,13 @@
 using AccountService.Application.Commands;
+using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AccountService.Api.Controllers
+namespace AccountService.Api.Controllers.v1
 {
-    [Route("api/v1/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class AccountController : BaseController
     {
@@ -18,7 +20,7 @@ namespace AccountService.Api.Controllers
 
         [Route("Hello")]
         [HttpPost]
-        public async Task<IActionResult> Hello([FromBody]HelloCommand command)
+        public virtual async Task<IActionResult> Hello([FromBody]HelloCommand command)
         {
             var res = await _mediator.Send(command);
             return Ok(res);
