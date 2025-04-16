@@ -8,6 +8,7 @@ namespace AccountService.Infrastructure.Configurations
     {
         public static IServiceCollection AddApiVersioningConfiguration(this IServiceCollection services)
         {
+            //default config for asp versioning
             services.AddApiVersioning(options =>
             {
                 options.DefaultApiVersion = new ApiVersion(1, 0);
@@ -15,12 +16,12 @@ namespace AccountService.Infrastructure.Configurations
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ApiVersionReader = ApiVersionReader.Combine(
                     new UrlSegmentApiVersionReader(),
-                    new HeaderApiVersionReader("Api-Version"));
+                    new HeaderApiVersionReader("Api-Version")); //send un header
             })
             .AddMvc()
             .AddApiExplorer(options =>
             {
-                options.GroupNameFormat = "'v'V";
+                options.GroupNameFormat = "'v'V"; // use in route
                 options.SubstituteApiVersionInUrl = true;
             });
             return services;
