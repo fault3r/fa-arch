@@ -18,9 +18,9 @@ namespace AccountService.Api.Controllers.v1
             _mediator = mediator;   
         }   
 
-        [Route("Hello")]
+        [Route("testMethod")]
         [HttpPost]
-        public virtual async Task<IActionResult> Hello([FromBody]HelloCommand command)
+        public virtual async Task<IActionResult> testMethod([FromBody]HelloCommand command)
         {
             var res = await _mediator.Send(command);
             return Ok(res);
