@@ -5,9 +5,6 @@ namespace AccountService.Infrastructure.Contexts
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions options) : base(options)
-        {
-            
-        }
+        public DatabaseContext(DbContextOptions options) : base(options) {}
     }
 }
