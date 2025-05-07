@@ -1,0 +1,6 @@
+@fams.items_HostAddress = http://localhost:5007
+
+GET {{fams.items_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
