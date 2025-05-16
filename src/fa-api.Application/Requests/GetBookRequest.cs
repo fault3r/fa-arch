@@ -6,6 +6,7 @@ namespace fa_api.Application.Requests
 {
     public class GetBookRequest : IRequest<Book>
     {
-        public int BookId { get; set; }
+        //request is just a dto
+        public int BookId { get; set; }        
     }
 }

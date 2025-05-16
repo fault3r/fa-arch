@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fa-api.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb7daee47dee6993ced9dc3f9f5a8dbd5d05c2a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+502af6e5c9c2ce4ed9842ce992cbc67702bd3626")]
 [assembly: System.Reflection.AssemblyProductAttribute("fa-api.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fa-api.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

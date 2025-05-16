@@ -47,7 +47,7 @@
           "dependencies": {
             "MediatR": {
               "target": "Package",
-              "version": "[12.5.0, )"
+              "version": "[11.1.0, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -133,7 +133,7 @@
           "dependencies": {
             "MediatR": {
               "target": "Package",
-              "version": "[12.5.0, )"
+              "version": "[11.1.0, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -262,11 +262,23 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.5, )"
             }
