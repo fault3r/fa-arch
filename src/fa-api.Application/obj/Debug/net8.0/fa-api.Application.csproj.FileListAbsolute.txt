@@ -10,9 +10,9 @@
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.AssemblyInfo.cs
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.csproj.CoreCompileInputs.cache
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.sourcelink.json
-/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.csproj.CopyComplete
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.dll
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/refint/fa-api.Application.dll
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.pdb
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.Application.genruntimeconfig.cache
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/ref/fa-api.Application.dll
+/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Application/obj/Debug/net8.0/fa-api.A.85CF2A8D.Up2Date

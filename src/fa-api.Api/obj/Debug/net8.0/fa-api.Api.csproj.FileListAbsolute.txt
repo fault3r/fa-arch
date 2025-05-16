@@ -171,9 +171,12 @@
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.fa-api.Api.props
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/staticwebassets.pack.json
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/scopedcss/bundle/fa-api.Api.styles.css
-/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/fa-api.Api.csproj.CopyComplete
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/fa-api.Api.dll
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/refint/fa-api.Api.dll
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/fa-api.Api.pdb
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/fa-api.Api.genruntimeconfig.cache
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/ref/fa-api.Api.dll
+/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/bin/Debug/net8.0/fa-api.Api.staticwebassets.endpoints.json
+/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/staticwebassets/msbuild.fa-api.Api.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/fa-api.Api.csproj.Up2Date

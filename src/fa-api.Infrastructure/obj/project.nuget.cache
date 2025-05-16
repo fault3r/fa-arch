@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tt9+IkAPqknkhNxVcswJ9QxflopHF68QlToonxrdxN4ibVtK6gY6oD8/W9biikyqRDvO6mdu2Nh9aCbMryFOIQ==",
+  "dgSpecHash": "qu6RxZVJa78=",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Infrastructure/fa-api.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -85,7 +85,9 @@
     "/home/hamed-damavandi/.nuget/packages/system.text.json/9.0.5/system.text.json.9.0.5.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/home/hamed-damavandi/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
+    "/home/hamed-damavandi/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.app.ref/8.0.16/microsoft.netcore.app.ref.8.0.16.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.16/microsoft.aspnetcore.app.ref.8.0.16.nupkg.sha512"
   ],
   "logs": []
 }

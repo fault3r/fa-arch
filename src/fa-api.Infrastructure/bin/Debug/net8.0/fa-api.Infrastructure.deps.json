@@ -1082,12 +1082,18 @@
           "fa-api.Domain": "1.0.0"
         },
         "runtime": {
-          "fa-api.Application.dll": {}
+          "fa-api.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "fa-api.Domain/1.0.0": {
         "runtime": {
-          "fa-api.Domain.dll": {}
+          "fa-api.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
