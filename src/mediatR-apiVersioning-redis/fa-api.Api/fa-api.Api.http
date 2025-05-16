@@ -1,6 +1,0 @@
-@fa_api.Api_HostAddress = http://localhost:5274
-
-GET {{fa_api.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
