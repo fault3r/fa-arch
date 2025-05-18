@@ -25,7 +25,7 @@ builder.Services.AddApiVersioning(options =>
 builder.Services.AddScoped<ISqlDbContext, SqlDbContext>();
 builder.Services.AddDbContext<SqlDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlDatabase"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlDatabase"));    
 });
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
