@@ -7,6 +7,7 @@ namespace fa_api.Api.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]
+    [Route("api/ver{version:apiVersion}/Book")]
     [Route("api/Book")]
     public class BookController : ControllerBase
     {

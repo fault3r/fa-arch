@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace fa_api.Api.Controllers
 {
     [ApiController]
+    //[ApiVersion("1.0")]
     [ApiVersion("2.0")]
+    [Route("api/ver{version:apiVersion}/Book")]
     [Route("api/Book")]
     public class BookV2Controller : ControllerBase
     {
