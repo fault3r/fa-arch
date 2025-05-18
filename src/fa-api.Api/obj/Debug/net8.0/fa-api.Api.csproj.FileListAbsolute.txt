@@ -180,3 +180,4 @@
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/staticwebassets.build.endpoints.json
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/staticwebassets/msbuild.fa-api.Api.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 /home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/obj/Debug/net8.0/fa-api.Api.csproj.Up2Date
+/home/hamed-damavandi/Projects/microservice-fa/src/fa-api.Api/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.Versioning.dll

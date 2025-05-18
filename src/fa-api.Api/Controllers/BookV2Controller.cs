@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace fa_api.Api.Controllers
 {
     [ApiController]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/Book")]
-    public class BookController : ControllerBase
+    public class BookV2Controller : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public BookController(IMediator mediator)
+        public BookV2Controller(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -26,7 +26,10 @@ namespace fa_api.Api.Controllers
             if (book == null)
                 return NotFound();
             else
+            {
+                book.Title += " --version2";
                 return Ok(book);
+            }
         }
     }
 }
