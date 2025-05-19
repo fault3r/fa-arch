@@ -11,8 +11,8 @@ using fa_api.Infrastructure.Contexts;
 namespace fa_api.Infrastructure.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    [Migration("20250516181337_initial-db")]
-    partial class initialdb
+    [Migration("20250519175106_Init-Database")]
+    partial class InitDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

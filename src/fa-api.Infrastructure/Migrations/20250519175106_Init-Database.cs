@@ -5,7 +5,7 @@
 namespace fa_api.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initialdb : Migration
+    public partial class InitDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

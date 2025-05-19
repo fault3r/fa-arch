@@ -2,12 +2,12 @@ using System;
 
 namespace fa_api.Domain.Entities
 {
-    public class Book
+    public record Book
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
-        public string Title { get; set; }
+        public required string Title { get; init; }
 
-        public string Author { get; set; }        
+        public required string Author { get; init; }
     }
 }

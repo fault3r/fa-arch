@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Xt+4w94Mmi5vcvGjNgDydSyJ28ckrMvGH7AJPgPc5GQ=",
+  "Source": "fa-api.Api",
+  "BasePath": "_content/fa-api.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -29,8 +29,8 @@ namespace fa_api.Api.Controllers
                 return NotFound();
             else
             {
-                book.Title += " --version2";
-                return Ok(book);
+                var nbook = book with { Title = book.Title + " --ver2.0" };
+                return Ok(nbook);
             }
         }
     }
