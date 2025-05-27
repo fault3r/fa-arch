@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../fa-Application/fa-Application.csproj" />
+    <ProjectReference Include="../fa-Domain/fa-Domain.csproj" />
     <ProjectReference Include="../fa-Infrastructure/fa-Infrastructure.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace faApi.Infrastructure.Repositories
 {
-    public class BookRepository : IBookRepaository
+    public class BookRepository : IBookRepository
     {
         private readonly MongoDbContext _mongoDbContext;
 

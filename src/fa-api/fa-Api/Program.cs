@@ -1,10 +1,21 @@
+using faApi.Application.Interfaces;
+using faApi.Application.Services;
+using faApi.Domain.Interfaces;
 using faApi.Infrastructure.Configurations;
+using faApi.Infrastructure.Data.Contexts;
+using faApi.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.AddScoped<MongoDbContext>();
+
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+
+builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

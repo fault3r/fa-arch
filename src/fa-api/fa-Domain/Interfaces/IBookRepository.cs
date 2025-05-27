@@ -3,7 +3,7 @@ using faApi.Domain.Entities;
 
 namespace faApi.Domain.Interfaces
 {
-    public interface IBookRepaository
+    public interface IBookRepository
     {
         Task<IEnumerable<Book>> GetAll();
 

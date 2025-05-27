@@ -368,6 +368,20 @@
           "lib/net7.0/ZstdSharp.dll": {}
         }
       },
+      "fa-Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "fa-Domain": "1.0.0",
+          "fa-Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/fa-Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/fa-Application.dll": {}
+        }
+      },
       "fa-Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -1241,6 +1255,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "fa-Application/1.0.0": {
+      "type": "project",
+      "path": "../fa-Application/fa-Application.csproj",
+      "msbuildProject": "../fa-Application/fa-Application.csproj"
+    },
     "fa-Domain/1.0.0": {
       "type": "project",
       "path": "../fa-Domain/fa-Domain.csproj",
@@ -1256,6 +1275,8 @@
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.16",
       "Swashbuckle.AspNetCore >= 6.6.2",
+      "fa-Application >= 1.0.0",
+      "fa-Domain >= 1.0.0",
       "fa-Infrastructure >= 1.0.0"
     ]
   },
@@ -1285,6 +1306,12 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/home/hamed-damavandi/Documents/microservice-fa/src/fa-api/fa-Application/fa-Application.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/fa-api/fa-Application/fa-Application.csproj"
+            },
+            "/home/hamed-damavandi/Documents/microservice-fa/src/fa-api/fa-Domain/fa-Domain.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/fa-api/fa-Domain/fa-Domain.csproj"
+            },
             "/home/hamed-damavandi/Documents/microservice-fa/src/fa-api/fa-Infrastructure/fa-Infrastructure.csproj": {
               "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/fa-api/fa-Infrastructure/fa-Infrastructure.csproj"
             }
