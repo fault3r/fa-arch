@@ -5,6 +5,9 @@ namespace faApi.Application.Interfaces
 {
     public interface IBookService
     {
-        Task<IEnumerable<BookDto>> GetAll();
+        Task<BookDto> GetBook(string id);
+
+        Task<BookDto> AddBook(AddBookDto book);
+
     }
 }

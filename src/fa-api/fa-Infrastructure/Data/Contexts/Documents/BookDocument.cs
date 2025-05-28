@@ -9,7 +9,7 @@ namespace faApi.Infrastructure.Data.Contexts.Documents
         [BsonId]
         [BsonElement("_id")]
         [BsonRepresentation(BsonType.ObjectId)]
-        public required ObjectId Id { get; set; }
+        public ObjectId Id { get; set; }
 
         public required string Title { get; set; }
 
