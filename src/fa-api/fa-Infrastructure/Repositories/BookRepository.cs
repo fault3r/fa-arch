@@ -6,7 +6,6 @@ using faApi.Infrastructure.Data.Contexts;
 using faApi.Infrastructure.Data.Contexts.Documents;
 using MongoDB.Driver;
 
-// methods works with entity dtos here 
 namespace faApi.Infrastructure.Repositories
 {
     public class BookRepository : IBookRepository
