@@ -57,7 +57,11 @@
           "dependencies": {
             "MediatR": {
               "target": "Package",
-              "version": "[12.5.0, )"
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -147,7 +151,11 @@
           "dependencies": {
             "MediatR": {
               "target": "Package",
-              "version": "[12.5.0, )"
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
             }
           },
           "imports": [

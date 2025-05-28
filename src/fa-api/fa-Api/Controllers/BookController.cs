@@ -1,4 +1,7 @@
+using faApi.Application.Commands;
 using faApi.Application.Interfaces;
+using faApi.Application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,18 +11,25 @@ namespace faApi.Api.Controllers
     [Route("api/[controller]")]
     public class BookController : ControllerBase
     {
-        private readonly IBookService _bookService;
-
-        public BookController(IBookService bookService)
+        private readonly IMediator _mediator;
+        public BookController(IMediator mediator)
         {
-            _bookService = bookService;
+            _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBook(string id)
         {
-            var books = await _bookService.GetAll();
-            return Ok(books);
+            var request = new GetBookQuery { Id = id };
+            var res = await _mediator.Send(request);
+            return Ok(res);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddBook(AddBookCommand request)
+        {
+            var res = await _mediator.Send(request);
+            return Ok(res);
         }
     }
 }

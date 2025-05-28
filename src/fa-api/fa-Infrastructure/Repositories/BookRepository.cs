@@ -19,9 +19,8 @@ namespace faApi.Infrastructure.Repositories
         }
 
         public async Task<Book> GetBook(string id)
-        {
-            var filter = Builders<BookDocument>.Filter.Eq(p => p.Id.ToString(), id);
-            var dbook = await _mongoDbContext.BooksCollection.Find(filter).SingleOrDefaultAsync();
+        {           
+            var dbook = await _mongoDbContext.BooksCollection.Find(p => p.Id.ToString() == id).FirstOrDefaultAsync();
             var book = new Book
             {
                 Id = dbook.Id.ToString(),
