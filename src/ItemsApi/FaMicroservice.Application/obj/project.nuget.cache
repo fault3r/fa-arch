@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "aX1LgjZm7qA=",
+  "success": true,
+  "projectFilePath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.app.ref/8.0.18/microsoft.netcore.app.ref.8.0.18.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.18/microsoft.aspnetcore.app.ref.8.0.18.nupkg.sha512"
+  ],
+  "logs": []
+}
