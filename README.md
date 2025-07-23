@@ -4,5 +4,3 @@
 - Dontet
 - CSharp
 - Docker
-- RabbitMq
-- Mongodb
