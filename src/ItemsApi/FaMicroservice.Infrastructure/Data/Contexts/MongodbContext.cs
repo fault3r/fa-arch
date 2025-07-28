@@ -8,18 +8,14 @@ namespace FaMicroservice.Infrastructure.Data.Contexts
 {
     public class MongodbContext
     {
-        private readonly IMongoDatabase database;
-
-        private readonly MongodbSettings settings;
+        private readonly IMongoDatabase mongoDatabase;
 
         public MongodbContext(IOptions<MongodbSettings> settings)
         {
-            this.settings = settings.Value;
-            var client = new MongoClient(this.settings.ConnectionString);
-            database = client.GetDatabase(this.settings.DatabaseName);
+            var client = new MongoClient(settings.Value.ConnectionString);
+            mongoDatabase = client.GetDatabase(settings.Value.DatabaseName);
         }
 
-        public IMongoCollection<ItemDocument> Items =>
-            database.GetCollection<ItemDocument>(settings.CollectionName);
+        public IMongoDatabase MongoDatabase => mongoDatabase;
     }
 }
