@@ -4,17 +4,11 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
 {
-    public class ItemDocument : IDocument
+    public interface IDocument
     {
         [BsonId]
         [BsonElement("Id")]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
-
-        public required string Name { get; set; }
-
-        public required string Description { get; set; }
-
-        public decimal Price { get; set; }
     }
 }
