@@ -1,11 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "JIGFEL+oErc=",
+  "dgSpecHash": "593fFwHe814=",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/hamed-damavandi/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.configuration.abstractions/9.0.7/microsoft.extensions.configuration.abstractions.9.0.7.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.configuration.binder/9.0.7/microsoft.extensions.configuration.binder.9.0.7.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.logging.abstractions/2.0.0/microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.options/9.0.7/microsoft.extensions.options.9.0.7.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.options.configurationextensions/9.0.7/microsoft.extensions.options.configurationextensions.9.0.7.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/microsoft.extensions.primitives/9.0.7/microsoft.extensions.primitives.9.0.7.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/mongodb.bson/3.4.1/mongodb.bson.3.4.1.nupkg.sha512",
