@@ -11,33 +11,39 @@ namespace FaMicroservice.Infrastructure.Repositories
     {
         private readonly MongodbContext _mongodbContext = mongodbContext;
 
-        private readonly FilterDefinitionBuilder<ItemDocument> filter = Builders<ItemDocument>.Filter;
-
+        private readonly FilterDefinitionBuilder<ItemDocument> mongoFilter = Builders<ItemDocument>.Filter;
 
         public async Task<IEnumerable<Item>> GetAllAsync()
         {
-            var items = await _mongodbContext.Items.FindAsync(filter.Empty);
-            return items.ToList().Select(r => r.ToDomain());
+            var items = await _mongodbContext.Items.Find(mongoFilter.Empty).ToListAsync();
+            return items.Select(item => item.ToDomain());
         }
 
         public async Task<Item> GetByIdAsync(string id)
         {
-            var item = await _mongodbContext.Items.FindAsync(filter.Eq(p => p.Id.ToString(), id));
+            var item = await _mongodbContext.Items.Find(mongoFilter.Eq(prop => prop.Id.ToString(), id)).FirstOrDefaultAsync();
+            return item.ToDomain();
         }
 
         public async Task CreateAsync(Item item)
         {
-            throw new NotImplementedException();
+            await _mongodbContext.Items.InsertOneAsync(ItemDocument.ToDocument(item));
         }
 
-        public async Task UpdateAsync(Item document)
+        public async Task UpdateAsync(Item item)
         {
-            throw new NotImplementedException();
+            var old = GetByIdAsync(item.Id.ToString());
+            if (old != null)
+            {
+                await _mongodbContext.Items.ReplaceOneAsync(prop => prop.Id.ToString() == item.Id.ToString(),
+                    ItemDocument.ToDocument(item));
+            }
         }
 
         public async Task RemoveAsync(string id)
         {
-            throw new NotImplementedException();
+            var item = GetByIdAsync(id);
+            if
         }
     }
 }

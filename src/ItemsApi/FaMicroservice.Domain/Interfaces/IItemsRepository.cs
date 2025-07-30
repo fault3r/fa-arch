@@ -11,7 +11,7 @@ namespace FaMicroservice.Domain.Interfaces
 
         Task CreateAsync(Item item);
 
-        Task UpdateAsync(Item document);
+        Task UpdateAsync(Item item);
 
         Task RemoveAsync(string id);
     }

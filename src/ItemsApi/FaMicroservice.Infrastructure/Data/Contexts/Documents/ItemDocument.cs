@@ -21,5 +21,15 @@ namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
                 Price = Price,
             };
         }
+
+        public static ItemDocument ToDocument(Item item)
+        {
+            return new ItemDocument
+            {
+                Name = item.Name,
+                Description = item.Description,
+                Price = item.Price,
+            };
+        }
     }
 }
