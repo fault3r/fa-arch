@@ -6,16 +6,10 @@ using MongoDB.Driver;
 
 namespace FaMicroservice.Infrastructure.Data.Contexts
 {
-    public class MongodbContext
+    public class MongodbContext(IOptions<MongodbSettings> settings)
     {
-        private readonly IMongoDatabase mongoDatabase;
-
-        public MongodbContext(IOptions<MongodbSettings> settings)
-        {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            mongoDatabase = client.GetDatabase(settings.Value.DatabaseName);
-        }
-
-        public IMongoDatabase MongoDatabase => mongoDatabase;
+        public IMongoCollection<ItemDocument> Items { get; } = new MongoClient(settings.Value.ConnectionString)
+                .GetDatabase(settings.Value.DatabaseName)
+                .GetCollection<ItemDocument>(settings.Value.CollectionName);
     }
 }

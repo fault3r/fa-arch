@@ -2,13 +2,15 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
+namespace FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument
 {
-    public interface IDocument
+    public class IDocument
     {
         [BsonId]
         [BsonElement("Id")]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
+
+        public DateTime Updated { get; set; }
     }
 }
