@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mF0dHcvrQMU=",
+  "dgSpecHash": "LXKZ4O5k2wY=",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
   "expectedPackageFiles": [
@@ -33,5 +33,12 @@
     "/home/hamed-damavandi/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.18/microsoft.netcore.app.host.linux-x64.8.0.18.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

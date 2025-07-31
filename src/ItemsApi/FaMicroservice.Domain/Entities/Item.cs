@@ -11,5 +11,7 @@ namespace FaMicroservice.Domain.Entities
         public required string Description { get; set; }
 
         public decimal Price { get; set; }
+
+        public DateTime Updated { get; set; }
     }
 }

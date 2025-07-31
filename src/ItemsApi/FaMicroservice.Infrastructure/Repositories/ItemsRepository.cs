@@ -19,31 +19,32 @@ namespace FaMicroservice.Infrastructure.Repositories
             return items.Select(item => item.ToDomain());
         }
 
-        public async Task<Item> GetByIdAsync(string id)
+        public async Task<Item?> GetByIdAsync(string id)
         {
             var item = await _mongodbContext.Items.Find(mongoFilter.Eq(prop => prop.Id.ToString(), id)).FirstOrDefaultAsync();
-            return item.ToDomain();
+            return item?.ToDomain();
         }
 
         public async Task CreateAsync(Item item)
         {
+            ArgumentNullException.ThrowIfNull(item);
+            item.Updated = DateTime.UtcNow;
             await _mongodbContext.Items.InsertOneAsync(ItemDocument.ToDocument(item));
         }
 
         public async Task UpdateAsync(Item item)
         {
+            ArgumentNullException.ThrowIfNull(item);
             var old = GetByIdAsync(item.Id.ToString());
-            if (old != null)
-            {
-                await _mongodbContext.Items.ReplaceOneAsync(prop => prop.Id.ToString() == item.Id.ToString(),
-                    ItemDocument.ToDocument(item));
-            }
+            ArgumentNullException.ThrowIfNull(old);
+            item.Updated = DateTime.UtcNow;
+            await _mongodbContext.Items.ReplaceOneAsync(prop => prop.Id.ToString() == item.Id.ToString(),
+                ItemDocument.ToDocument(item));
         }
 
         public async Task RemoveAsync(string id)
         {
-            var item = GetByIdAsync(id);
-            if
+            await _mongodbContext.Items.DeleteOneAsync(mongoFilter.Eq(prop => prop.Id.ToString(), id));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace FaMicroservice.Domain.Interfaces
     {
         Task<IEnumerable<Item>> GetAllAsync();
 
-        Task<Item> GetByIdAsync(string id);
+        Task<Item?> GetByIdAsync(string id);
 
         Task CreateAsync(Item item);
 
