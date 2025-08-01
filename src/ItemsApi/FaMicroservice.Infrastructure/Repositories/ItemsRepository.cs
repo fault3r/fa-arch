@@ -5,6 +5,7 @@ using FaMicroservice.Infrastructure.Data.Contexts;
 using FaMicroservice.Infrastructure.Data.Contexts.Documents;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using static FaMicroservice.Domain.Interfaces.IItemsRepository;
 
 namespace FaMicroservice.Infrastructure.Repositories
 {
@@ -15,39 +16,96 @@ namespace FaMicroservice.Infrastructure.Repositories
         private readonly FilterDefinitionBuilder<ItemDocument> mongoFilter = Builders<ItemDocument>.Filter;
 
 
-        public async Task<IEnumerable<Item>> GetAllAsync()
+        public async Task<RepositoryResult> GetAllAsync()
         {
-            var items = await _mongodbContext.Items.Find(mongoFilter.Empty).ToListAsync();
-            return items.Select(item => item.ToDomain());
-        }
-
-        public async Task<Item?> GetByIdAsync(string id)
-        {
-            var item = await _mongodbContext.Items.Find(mongoFilter.Eq(p => p.Id, ObjectId.Parse(id))).FirstOrDefaultAsync();
-            return item?.ToDomain();
-        }
-
-        public async Task<Item> CreateAsync(Item item)
-        {
-            var nItem = new ItemDocument
+            try
             {
-                Name = item.Name,
-                Description = item.Description,
-                Price = item.Price,
-                Updated = DateTime.UtcNow,
-            };
-            await _mongodbContext.Items.InsertOneAsync(nItem);
-            return nItem.ToDomain();
+                var items = await _mongodbContext.Items.Find(mongoFilter.Empty).ToListAsync();
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "Success.",
+                    Items = items.Select(item => item.ToDomain()),
+                };
+            }
+            catch (Exception ex)
+            {
+                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };                
+            }
         }
 
-        public async Task<Item?> UpdateAsync(Item item)
+        public async Task<RepositoryResult> GetByIdAsync(string id)
         {
-            var oldItem = await GetByIdAsync(item.Id.ToString());
-            if (oldItem is null)
-                return null;
-            await _mongodbContext.Items.ReplaceOneAsync(mongoFilter.Eq(prop => prop.Id, ObjectId.Parse(item.Id)),
-                ItemDocument.ToDocument(item));
-            return item;
+            try
+            {
+                var item = await _mongodbContext.Items.Find(mongoFilter.Eq(p => p.Id, ObjectId.Parse(id))).FirstOrDefaultAsync();
+                if (item is null)
+                    return new RepositoryResult { Message = "Not Found!" };
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "Success.",
+                    Items = [item.ToDomain()],
+                };
+            }
+            catch (Exception ex)
+            {
+                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };
+            }
+        }
+
+        public async Task<RepositoryResult> CreateAsync(Item item)
+        {
+            try
+            {
+                var newItem = new ItemDocument
+                {
+                    Name = item.Name,
+                    Description = item.Description,
+                    Price = item.Price,
+                    Updated = DateTime.UtcNow,
+                };
+                await _mongodbContext.Items.InsertOneAsync(newItem);
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "Success.",
+                    Items = [newItem.ToDomain()],
+                };
+            }
+            catch (Exception ex)
+            {
+                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };
+            }
+        }
+
+        public async Task<RepositoryResult> UpdateAsync(Item item)
+        {
+            try
+            {
+                var oldItem = await _mongodbContext.Items.Find(mongoFilter.Eq(prop => prop.Id, ObjectId.Parse(item.Id))).FirstOrDefaultAsync();
+                if (oldItem is null)
+                    return new RepositoryResult { Message = "Not Found!" };
+                await _mongodbContext.Items.ReplaceOneAsync
+                    new ItemDocument
+                    {
+                        Id = ObjectId.Parse(item.Id),
+                        Name = item.Name,
+                        Description = item.Description,
+                        Price = item.Price,
+                        Updated = DateTime.UtcNow,
+                    });
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "Success.",
+                    Items = [],
+                };
+            }
+            catch (Exception ex)
+            {
+                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };
+            }
         }
 
         Task<bool> IItemsRepository.RemoveAsync(string id)

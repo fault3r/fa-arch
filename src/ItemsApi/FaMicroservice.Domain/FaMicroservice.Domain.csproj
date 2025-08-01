@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
