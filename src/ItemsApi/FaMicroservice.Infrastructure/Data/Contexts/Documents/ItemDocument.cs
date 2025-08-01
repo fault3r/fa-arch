@@ -1,6 +1,7 @@
 using System;
 using FaMicroservice.Domain.Entities;
 using FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument;
+using MongoDB.Bson;
 
 namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
 {
@@ -23,5 +24,14 @@ namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
                 Updated = Updated,
             };
         }
+
+        public static ItemDocument ToDocument(Item item) => new ItemDocument
+        {
+            Id = ObjectId.Parse(item.Id),
+            Name = item.Name,
+            Description = item.Description,
+            Price = item.Price,
+            Updated = item.Updated,
+        };
     }
 }

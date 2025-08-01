@@ -27,7 +27,7 @@ namespace FaMicroservice.Infrastructure.Repositories
             return item?.ToDomain();
         }
 
-        public async Task<Item?> CreateAsync(Item item)
+        public async Task<Item> CreateAsync(Item item)
         {
             var nItem = new ItemDocument
             {
@@ -40,9 +40,14 @@ namespace FaMicroservice.Infrastructure.Repositories
             return nItem.ToDomain();
         }
 
-        Task<Item?> IItemsRepository.UpdateAsync(Item item)
+        public async Task<Item?> UpdateAsync(Item item)
         {
-            throw new NotImplementedException();
+            var oldItem = await GetByIdAsync(item.Id.ToString());
+            if (oldItem is null)
+                return null;
+            await _mongodbContext.Items.ReplaceOneAsync(mongoFilter.Eq(prop => prop.Id, ObjectId.Parse(item.Id)),
+                ItemDocument.ToDocument(item));
+            return item;
         }
 
         Task<bool> IItemsRepository.RemoveAsync(string id)

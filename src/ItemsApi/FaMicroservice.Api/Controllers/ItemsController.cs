@@ -1,13 +1,12 @@
-using FaMicroservice.Application.DTOs;
+using System;
 using FaMicroservice.Application.Interfaces;
-using FaMicroservice.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static FaMicroservice.Application.DTOs.ItemDTOs;
 
 namespace FaMicroservice.Api.Controllers
 {
     [ApiController]
-    [Route("items")]
+    [Route("api/items")]
     public class ItemsController(IItemsService itemsService) : ControllerBase
     {
         private readonly IItemsService _itemsService = itemsService;
@@ -31,9 +30,9 @@ namespace FaMicroservice.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ItemDto>> CreateAsync([FromBody] CreateItemDto item)
         {
-            var nItem = await _itemsService.CreateAsync(item);
-            if (nItem is null)
+            if (item is null)
                 return BadRequest();
+            var nItem = await _itemsService.CreateAsync(item);
             return CreatedAtAction(nameof(GetByIdAsync), new { id = nItem.Id }, nItem);
         }
     }
