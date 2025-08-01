@@ -3,6 +3,7 @@ using FaMicroservice.Domain.Entities;
 using FaMicroservice.Domain.Interfaces;
 using FaMicroservice.Infrastructure.Data.Contexts;
 using FaMicroservice.Infrastructure.Data.Contexts.Documents;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace FaMicroservice.Infrastructure.Repositories
@@ -13,6 +14,7 @@ namespace FaMicroservice.Infrastructure.Repositories
 
         private readonly FilterDefinitionBuilder<ItemDocument> mongoFilter = Builders<ItemDocument>.Filter;
 
+
         public async Task<IEnumerable<Item>> GetAllAsync()
         {
             var items = await _mongodbContext.Items.Find(mongoFilter.Empty).ToListAsync();
@@ -21,30 +23,31 @@ namespace FaMicroservice.Infrastructure.Repositories
 
         public async Task<Item?> GetByIdAsync(string id)
         {
-            var item = await _mongodbContext.Items.Find(mongoFilter.Eq(prop => prop.Id.ToString(), id)).FirstOrDefaultAsync();
+            var item = await _mongodbContext.Items.Find(mongoFilter.Eq(p => p.Id, ObjectId.Parse(id))).FirstOrDefaultAsync();
             return item?.ToDomain();
         }
 
-        public async Task CreateAsync(Item item)
+        public async Task<Item?> CreateAsync(Item item)
         {
-            ArgumentNullException.ThrowIfNull(item);
-            item.Updated = DateTime.UtcNow;
-            await _mongodbContext.Items.InsertOneAsync(ItemDocument.ToDocument(item));
+            var nItem = new ItemDocument
+            {
+                Name = item.Name,
+                Description = item.Description,
+                Price = item.Price,
+                Updated = DateTime.UtcNow,
+            };
+            await _mongodbContext.Items.InsertOneAsync(nItem);
+            return nItem.ToDomain();
         }
 
-        public async Task UpdateAsync(Item item)
+        Task<Item?> IItemsRepository.UpdateAsync(Item item)
         {
-            ArgumentNullException.ThrowIfNull(item);
-            var old = GetByIdAsync(item.Id.ToString());
-            ArgumentNullException.ThrowIfNull(old);
-            item.Updated = DateTime.UtcNow;
-            await _mongodbContext.Items.ReplaceOneAsync(prop => prop.Id.ToString() == item.Id.ToString(),
-                ItemDocument.ToDocument(item));
+            throw new NotImplementedException();
         }
 
-        public async Task RemoveAsync(string id)
+        Task<bool> IItemsRepository.RemoveAsync(string id)
         {
-            await _mongodbContext.Items.DeleteOneAsync(mongoFilter.Eq(prop => prop.Id.ToString(), id));
+            throw new NotImplementedException();
         }
     }
 }

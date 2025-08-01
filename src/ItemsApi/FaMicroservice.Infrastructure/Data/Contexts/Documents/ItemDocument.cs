@@ -1,9 +1,6 @@
 using System;
 using FaMicroservice.Domain.Entities;
 using FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument;
-using FaMicroservice.Infrastructure.Repositories;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
 {
@@ -19,23 +16,11 @@ namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
         {
             return new Item
             {
-                Id = Guid.Parse(Id.ToString()),
+                Id = Id.ToString(),
                 Name = Name,
                 Description = Description,
                 Price = Price,
-                Updated = DateTime.UtcNow,
-            };
-        }
-
-        public static ItemDocument ToDocument(Item item)
-        {
-            return new ItemDocument
-            {
-                Id = ObjectId.Parse(item.Id.ToString()),
-                Name = item.Name,
-                Description = item.Description,
-                Price = item.Price,
-                Updated = item.Updated,
+                Updated = Updated,
             };
         }
     }

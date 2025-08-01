@@ -1,18 +1,22 @@
+using FaMicroservice.Application.Interfaces;
+using FaMicroservice.Application.Services;
 using FaMicroservice.Domain.Interfaces;
 using FaMicroservice.Infrastructure.Configurations;
 using FaMicroservice.Infrastructure.Data.Contexts;
 using FaMicroservice.Infrastructure.Repositories;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.SuppressAsyncSuffixInActionNames = false;
+});
 
 builder.Services.Configure<MongodbSettings>(builder.Configuration.GetSection(nameof(MongodbSettings)));
 builder.Services.AddScoped<MongodbContext>();
 
 builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
-
+builder.Services.AddScoped<IItemsService, ItemsService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,7 +32,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
-
 
 app.Run();
 
