@@ -30,7 +30,7 @@ namespace FaMicroservice.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };                
+                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };
             }
         }
 
@@ -83,18 +83,35 @@ namespace FaMicroservice.Infrastructure.Repositories
         {
             try
             {
-                var oldItem = await _mongodbContext.Items.Find(mongoFilter.Eq(prop => prop.Id, ObjectId.Parse(item.Id))).FirstOrDefaultAsync();
-                if (oldItem is null)
+                var nItem = new ItemDocument
+                {
+                    Id = ObjectId.Parse(item.Id),
+                    Name = item.Name,
+                    Description = item.Description,
+                    Price = item.Price,
+                    Updated = DateTime.UtcNow,
+                };
+                var updateItem = await _mongodbContext.Items.FindOneAndReplaceAsync(mongoFilter.Eq(prop => prop.Id, ObjectId.Parse(item.Id)), nItem);
+                if (updateItem is null)
                     return new RepositoryResult { Message = "Not Found!" };
-                await _mongodbContext.Items.ReplaceOneAsync
-                    new ItemDocument
-                    {
-                        Id = ObjectId.Parse(item.Id),
-                        Name = item.Name,
-                        Description = item.Description,
-                        Price = item.Price,
-                        Updated = DateTime.UtcNow,
-                    });
+                return new RepositoryResult
+                {
+                    Success = true,
+                    Message = "Success.",
+                    Items = [nItem.ToDomain()],
+                };
+            }
+            catch (Exception ex)
+            {
+                return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };
+            }
+        }
+
+        public async Task<RepositoryResult> DeleteAsync(string id)
+        {
+            try
+            {
+                var res = await _mongodbContext.Items.DeleteOneAsync(prop => prop.Id == ObjectId.Parse(id));
                 return new RepositoryResult
                 {
                     Success = true,
@@ -106,11 +123,6 @@ namespace FaMicroservice.Infrastructure.Repositories
             {
                 return new RepositoryResult { Message = $"Database Error!\n{ex.Message}" };
             }
-        }
-
-        Task<bool> IItemsRepository.RemoveAsync(string id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

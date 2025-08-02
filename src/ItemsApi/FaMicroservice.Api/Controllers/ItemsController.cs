@@ -33,7 +33,31 @@ namespace FaMicroservice.Api.Controllers
             if (item is null)
                 return BadRequest();
             var nItem = await _itemsService.CreateAsync(item);
+            if (nItem is null)
+                return BadRequest();
             return CreatedAtAction(nameof(GetByIdAsync), new { id = nItem.Id }, nItem);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<ActionResult<ItemDto>> UpdateAsync(string id, [FromBody] UpdateItemDto item)
+        {
+            if (item is null)
+                return BadRequest();
+            var uItem = await _itemsService.UpdateAsync(id, item);
+            if (uItem is null)
+                return NotFound();
+            return Ok(uItem);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult> DeleteAsync(string id)
+        {
+            var result = await _itemsService.DeleteAsync(id);
+            if (!result)
+                return NotFound();
+            return NoContent();
         }
     }
 }

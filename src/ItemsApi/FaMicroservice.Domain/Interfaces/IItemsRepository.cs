@@ -11,9 +11,9 @@ namespace FaMicroservice.Domain.Interfaces
 
         Task<RepositoryResult> CreateAsync(Item item);
 
-        Task<Item?> UpdateAsync(Item item);
+        Task<RepositoryResult> UpdateAsync(Item item);
 
-        Task<bool> RemoveAsync(string id);
+        Task<RepositoryResult> DeleteAsync(string id);
 
         public record RepositoryResult
         {

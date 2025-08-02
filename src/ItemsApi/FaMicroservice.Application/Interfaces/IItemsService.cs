@@ -9,10 +9,10 @@ namespace FaMicroservice.Application.Interfaces
 
         Task<ItemDto?> GetByIdAsync(string id);
 
-        Task<ItemDto> CreateAsync(CreateItemDto item);
+        Task<ItemDto?> CreateAsync(CreateItemDto item);
 
-        Task UpdateAsync(UpdateItemDto item);
+        Task<ItemDto?> UpdateAsync(string id, UpdateItemDto item);
 
-        Task RemoveAsync(string id);
+        Task<bool> DeleteAsync(string id);
     }
 }
