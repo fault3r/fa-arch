@@ -111,7 +111,9 @@ namespace FaMicroservice.Infrastructure.Repositories
         {
             try
             {
-                var res = await _mongodbContext.Items.DeleteOneAsync(prop => prop.Id == ObjectId.Parse(id));
+                var result = await _mongodbContext.Items.DeleteOneAsync(prop => prop.Id == ObjectId.Parse(id));
+                if (result.DeletedCount == 0)
+                    return new RepositoryResult { Message = "Not Found!" };
                 return new RepositoryResult
                 {
                     Success = true,
