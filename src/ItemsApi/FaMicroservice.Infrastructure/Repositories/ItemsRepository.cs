@@ -38,7 +38,10 @@ namespace FaMicroservice.Infrastructure.Repositories
         {
             try
             {
-                var item = await _mongodbContext.Items.Find(mongoFilter.Eq(p => p.Id, ObjectId.Parse(id))).FirstOrDefaultAsync();
+                bool checkId = ObjectId.TryParse(id, out ObjectId oid);
+                if(!checkId)
+                    return new RepositoryResult { Message = "Invalid Id!" };
+                var item = await _mongodbContext.Items.Find(mongoFilter.Eq(p => p.Id, oid)).FirstOrDefaultAsync();
                 if (item is null)
                     return new RepositoryResult { Message = "Not Found!" };
                 return new RepositoryResult
@@ -83,22 +86,25 @@ namespace FaMicroservice.Infrastructure.Repositories
         {
             try
             {
-                var nItem = new ItemDocument
+                bool checkId = ObjectId.TryParse(item.Id, out ObjectId oid);
+                if(!checkId)
+                    return new RepositoryResult { Message = "Invalid Id!" };
+                var newItem = new ItemDocument
                 {
-                    Id = ObjectId.Parse(item.Id),
+                    Id = oid,
                     Name = item.Name,
                     Description = item.Description,
                     Price = item.Price,
                     Updated = DateTime.UtcNow,
                 };
-                var updateItem = await _mongodbContext.Items.FindOneAndReplaceAsync(mongoFilter.Eq(prop => prop.Id, ObjectId.Parse(item.Id)), nItem);
-                if (updateItem is null)
+                var oldItem = await _mongodbContext.Items.FindOneAndReplaceAsync(mongoFilter.Eq(prop => prop.Id, oid), newItem);
+                if (oldItem is null)
                     return new RepositoryResult { Message = "Not Found!" };
                 return new RepositoryResult
                 {
                     Success = true,
                     Message = "Success.",
-                    Items = [nItem.ToDomain()],
+                    Items = [newItem.ToDomain()],
                 };
             }
             catch (Exception ex)
