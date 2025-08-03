@@ -3,7 +3,7 @@ using FaMicroservice.Domain.Entities;
 
 namespace FaMicroservice.Domain.DTOs
 {
-    public record RepositoryResult
+    public class RepositoryResult
     {
         public RepositoryResultStatus Status = RepositoryResultStatus.None;
 

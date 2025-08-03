@@ -1,9 +1,11 @@
 using System;
 using FaMicroservice.Application.DTOs;
 using FaMicroservice.Application.Interfaces;
+using FaMicroservice.Domain.DTOs;
 using FaMicroservice.Domain.Entities;
 using FaMicroservice.Domain.Interfaces;
 using static FaMicroservice.Application.DTOs.ItemDTOs;
+using static FaMicroservice.Application.DTOs.ServiceResult;
 
 namespace FaMicroservice.Application.Services
 {
@@ -18,22 +20,34 @@ namespace FaMicroservice.Application.Services
             item.Price,
             item.Updated);
 
-        public async Task<IEnumerable<ItemDto>> GetAllAsync()
+        public async Task<ServiceResult> GetAllAsync()
         {
             var result = await _itemsRepository.GetAllAsync();
-            return result.Items.Select(ToDTO);
+            return new ServiceResult
+            {
+                Status = ServiceResultStatus.Ok,
+                Items = result.Items.Select(ToDTO),
+            };
         }
 
-        public async Task<ItemDto?> GetByIdAsync(string id)
+        public async Task<ServiceResult> GetByIdAsync(string id)
         {
-            var result = await _itemsRepository.GetByIdAsync(id);
-            if (!result.Success)
-                return null;
-            return result.Items.Select(ToDTO).FirstOrDefault();
+            RepositoryResult result = await _itemsRepository.GetByIdAsync(id);
+            if (result.Status == RepositoryResultStatus.InvalidId)
+                return new ServiceResult { Status = ServiceResultStatus.BadRequest };
+            else if (result.Status == RepositoryResultStatus.NotFound)
+                return new ServiceResult { Status = ServiceResultStatus.NotFound };
+            return new ServiceResult
+            {
+                Status = ServiceResultStatus.Ok,
+                Items = result.Items.Select(ToDTO),
+            };
         }
 
-        public async Task<ItemDto?> CreateAsync(CreateItemDto item)
+        public async Task<ServiceResult> CreateAsync(CreateItemDto item)
         {
+            if(item is null)
+                return new ServiceResult { Status = ServiceResultStatus.BadRequest };
             var result = await _itemsRepository.CreateAsync(new Item
             {
                 Id = "[NewId]",
@@ -41,11 +55,17 @@ namespace FaMicroservice.Application.Services
                 Description = item.Description,
                 Price = item.Price,
             });
-            return result.Items.Select(ToDTO).FirstOrDefault();
+            return new ServiceResult
+            {
+                Status = ServiceResultStatus.Created,
+                Items = result.Items.Select(ToDTO),
+            };
         }
 
-        public async Task<ItemDto?> UpdateAsync(string id, UpdateItemDto item)
+        public async Task<ServiceResult> UpdateAsync(string id, UpdateItemDto item)
         {
+            if (item is null)
+                return new ServiceResult { Status = ServiceResultStatus.BadRequest };
             var result = await _itemsRepository.UpdateAsync(new Item
             {
                 Id = id,
@@ -53,17 +73,26 @@ namespace FaMicroservice.Application.Services
                 Description = item.Description,
                 Price = item.Price,
             });
-            if (!result.Success)
-                return null;
-            return result.Items.Select(ToDTO).FirstOrDefault();
+            if (result.Status == RepositoryResultStatus.InvalidId)
+                return new ServiceResult { Status = ServiceResultStatus.BadRequest };
+            else if (result.Status == RepositoryResultStatus.NotFound)
+                return new ServiceResult { Status = ServiceResultStatus.NotFound};
+            return new ServiceResult
+            {
+                Status = ServiceResultStatus.Ok,
+                Items = result.Items.Select(ToDTO),
+            };
         }
 
-        public async Task<bool> DeleteAsync(string id)
+        public async Task<ServiceResult> DeleteAsync(string id)
         {
             var result = await _itemsRepository.DeleteAsync(id);
-            if (!result.Success)
-                return false;
-            return true;
+            if (result.Status == RepositoryResultStatus.InvalidId)
+                return new ServiceResult { Status = ServiceResultStatus.BadRequest };
+            else if (result.Status == RepositoryResultStatus.NotFound)
+                return new ServiceResult { Status = ServiceResultStatus.NotFound };
+            return new ServiceResult { Status = ServiceResultStatus.NoContent };
         }
+
     }
 }
