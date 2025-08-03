@@ -21,8 +21,6 @@ namespace FaMicroservice.Application.Services
         public async Task<IEnumerable<ItemDto>> GetAllAsync()
         {
             var result = await _itemsRepository.GetAllAsync();
-            if (!result.Success)
-                return [];
             return result.Items.Select(ToDTO);
         }
 
@@ -38,13 +36,11 @@ namespace FaMicroservice.Application.Services
         {
             var result = await _itemsRepository.CreateAsync(new Item
             {
-                Id = "[Id]",
+                Id = "[NewId]",
                 Name = item.Name,
                 Description = item.Description,
                 Price = item.Price,
             });
-            if (!result.Success)
-                return null;
             return result.Items.Select(ToDTO).FirstOrDefault();
         }
 
