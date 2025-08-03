@@ -9,7 +9,6 @@ namespace FaMicroservice.Application.DTOs
 
         public IEnumerable<ItemDto> Items { get; set; } = [];
 
-
         public enum ServiceResultStatus
         {
             None,
