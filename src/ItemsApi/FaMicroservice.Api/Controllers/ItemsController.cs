@@ -1,6 +1,8 @@
 using System;
-using FaMicroservice.Application.DTOs;
+using FaMicroservice.Application.Commands;
 using FaMicroservice.Application.Interfaces;
+using FaMicroservice.Application.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using static FaMicroservice.Application.DTOs.ItemDTOs;
 using static FaMicroservice.Application.DTOs.ServiceResult;
@@ -9,14 +11,14 @@ namespace FaMicroservice.Api.Controllers
 {
     [ApiController]
     [Route("api/items")]
-    public class ItemsController(IItemsService itemsService) : ControllerBase
+    public class ItemsController(IMediator mediator) : ControllerBase
     {
-        private readonly IItemsService _itemsService = itemsService;
+        private readonly IMediator _mediator = mediator;
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAllAsync()
         {
-            var result = await _itemsService.GetAllAsync();
+            var result = await _mediator.Send(new GetAllQuery());
             return Ok(result.Items);
         }
 
@@ -24,7 +26,7 @@ namespace FaMicroservice.Api.Controllers
         [Route("{id}")]
         public async Task<ActionResult<ItemDto?>> GetByIdAsync(string id)
         {
-            var result = await _itemsService.GetByIdAsync(id);
+            var result = await _mediator.Send(new GetByIdQuery { Id = id });
             if (result.Status == ServiceResultStatus.BadRequest)
                 return BadRequest();
             else if (result.Status == ServiceResultStatus.NotFound)
@@ -35,7 +37,7 @@ namespace FaMicroservice.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ItemDto?>> CreateAsync([FromBody] CreateItemDto item)
         {
-            var result = await _itemsService.CreateAsync(item);
+            var result = await _mediator.Send(new CreateCommand { Item = item });
             if (result.Status == ServiceResultStatus.BadRequest)
                 return BadRequest();
             var newItem = result.Items.FirstOrDefault();
@@ -46,7 +48,7 @@ namespace FaMicroservice.Api.Controllers
         [Route("{id}")]
         public async Task<ActionResult<ItemDto?>> UpdateAsync(string id, [FromBody] UpdateItemDto item)
         {
-            var result = await _itemsService.UpdateAsync(id, item);
+            var result = await _mediator.Send(new UpdateCommand { Id = id, Item = item });
             if (result.Status == ServiceResultStatus.BadRequest)
                 return BadRequest();
             else if (result.Status == ServiceResultStatus.NotFound)
@@ -59,7 +61,7 @@ namespace FaMicroservice.Api.Controllers
         [Route("{id}")]
         public async Task<ActionResult> DeleteAsync(string id)
         {
-            var result = await _itemsService.DeleteAsync(id);
+            var result = await _mediator.Send(new DeleteCommand { Id = id });
             if (result.Status == ServiceResultStatus.BadRequest)
                 return BadRequest();
             else if (result.Status == ServiceResultStatus.NotFound)
