@@ -5,14 +5,13 @@ namespace FaMicroservice.Domain.DTOs
 {
     public class RepositoryResult
     {
-        public RepositoryResultStatus Status = RepositoryResultStatus.None;
+        public RepositoryResultStatus Status;
 
         public IEnumerable<Item> Items { get; set; } = [];
     }
 
     public enum RepositoryResultStatus
     {
-        None,
         Success,
         InvalidId,
         NotFound,

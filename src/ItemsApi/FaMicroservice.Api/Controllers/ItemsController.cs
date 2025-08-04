@@ -2,6 +2,7 @@ using System;
 using FaMicroservice.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using static FaMicroservice.Application.DTOs.ItemDTOs;
+using static FaMicroservice.Application.DTOs.ServiceResult;
 
 namespace FaMicroservice.Api.Controllers
 {
@@ -14,59 +15,43 @@ namespace FaMicroservice.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAllAsync()
         {
-            var items = await _itemsService.GetAllAsync();
-            return Ok(items);
-            /*
-                Get: No parameters
-                Return:
-                    Status Code: 200 OK
-                    Body: JSON array of all records
-            */
+            var result = await _itemsService.GetAllAsync();
+            return Ok(result.Items);
         }
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<ItemDto>> GetByIdAsync(string id)
+        public async Task<ActionResult<ItemDto?>> GetByIdAsync(string id)
         {
-            var item = await _itemsService.GetByIdAsync(id);
-            if (item is null)
+            var result = await _itemsService.GetByIdAsync(id);
+            if (result.Status == ServiceResultStatus.BadRequest)
+                return BadRequest();
+            else if (result.Status == ServiceResultStatus.NotFound)
                 return NotFound();
-            return Ok(item);
-            /*
-                Get: Id
-                Return:
-                    Status Code:
-                        200 OK (if found)
-                        404 Not Found (if not found)
-                    Body: JSON object of the record if found
-            */
+            return Ok(result.Items.FirstOrDefault());
         }
 
         [HttpPost]
-        public async Task<ActionResult<ItemDto>> CreateAsync([FromBody] CreateItemDto item)
+        public async Task<ActionResult<ItemDto?>> CreateAsync([FromBody] CreateItemDto item)
         {
-            if (item is null)
+            var result = await _itemsService.CreateAsync(item);
+            if (result.Status == ServiceResultStatus.BadRequest)
                 return BadRequest();
-            var newItem = await _itemsService.CreateAsync(item);
-            return CreatedAtAction(nameof(GetByIdAsync), new { newItem?.Id, newItem }, newItem);
-            /*
-                Get: No parameters
-                Return:
-                    Status Code: 201 Created
-                    Body: JSON object of the created record, including its unique identifier.
-            */
+            var newItem = result.Items.FirstOrDefault();
+            return CreatedAtAction(nameof(GetByIdAsync), new { id = newItem?.Id }, newItem);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<ActionResult<ItemDto>> UpdateAsync(string id, [FromBody] UpdateItemDto item)
+        public async Task<ActionResult<ItemDto?>> UpdateAsync(string id, [FromBody] UpdateItemDto item)
         {
-            if (item is null)
+            var result = await _itemsService.UpdateAsync(id, item);
+            if (result.Status == ServiceResultStatus.BadRequest)
                 return BadRequest();
-            var uItem = await _itemsService.UpdateAsync(id, item);
-            if (uItem is null)
+            else if (result.Status == ServiceResultStatus.NotFound)
                 return NotFound();
-            return Ok(uItem);
+            var updatedItem = result.Items.FirstOrDefault();
+            return Ok(updatedItem);
         }
 
         [HttpDelete]
@@ -74,7 +59,9 @@ namespace FaMicroservice.Api.Controllers
         public async Task<ActionResult> DeleteAsync(string id)
         {
             var result = await _itemsService.DeleteAsync(id);
-            if (!result)
+            if (result.Status == ServiceResultStatus.BadRequest)
+                return BadRequest();
+            else if (result.Status == ServiceResultStatus.NotFound)
                 return NotFound();
             return NoContent();
         }
