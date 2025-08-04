@@ -1,3 +1,7 @@
+
+using System;
+using FaMicroservice.Application.Handlers.Commands;
+using FaMicroservice.Application.Handlers.Queries;
 using FaMicroservice.Application.Interfaces;
 using FaMicroservice.Application.Services;
 using FaMicroservice.Domain.Interfaces;
@@ -17,6 +21,15 @@ builder.Services.AddScoped<MongodbContext>();
 
 builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
 builder.Services.AddScoped<IItemsService, ItemsService>();
+
+builder.Services.AddMediatR(options =>
+{
+    options.RegisterServicesFromAssembly(typeof(GetAllQueryHandler).Assembly);
+    options.RegisterServicesFromAssembly(typeof(GetByIdQueryHandler).Assembly);
+    options.RegisterServicesFromAssembly(typeof(CreateCommandHandler).Assembly);
+    options.RegisterServicesFromAssembly(typeof(UpdateCommandHandler).Assembly);
+    options.RegisterServicesFromAssembly(typeof(DeleteCommandHandler).Assembly);
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
