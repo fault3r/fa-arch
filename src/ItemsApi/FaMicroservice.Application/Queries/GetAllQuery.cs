@@ -4,5 +4,5 @@ using MediatR;
 
 namespace FaMicroservice.Application.Queries
 {
-    public class GetAllQuery : IRequest<ServiceResult>{}
+    public class GetAllQuery : IRequest<ServiceResult> {}
 }

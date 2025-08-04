@@ -7,6 +7,6 @@ namespace FaMicroservice.Application.Commands
 {
     public class CreateCommand : IRequest<ServiceResult>
     {
-        public required CreateItemDto Item;     
+        public required CreateItemDto Item { get; set; }     
     }
 }
