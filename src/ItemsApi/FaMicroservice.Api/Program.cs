@@ -8,12 +8,26 @@ using FaMicroservice.Domain.Interfaces;
 using FaMicroservice.Infrastructure.Configurations;
 using FaMicroservice.Infrastructure.Data.Contexts;
 using FaMicroservice.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options =>
 {
     options.SuppressAsyncSuffixInActionNames = false;
+});
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new QueryStringApiVersionReader("v"),
+        new HeaderApiVersionReader("api-version"));
+        // new UrlSegmentApiVersionReader()
+        // [Route("api/v{version:apiVersion}/items")]
 });
 
 builder.Services.Configure<MongodbSettings>(builder.Configuration.GetSection(nameof(MongodbSettings)));

@@ -1,6 +1,5 @@
 using System;
 using FaMicroservice.Application.Commands;
-using FaMicroservice.Application.Interfaces;
 using FaMicroservice.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +9,7 @@ using static FaMicroservice.Application.DTOs.ServiceResult;
 namespace FaMicroservice.Api.Controllers
 {
     [ApiController]
+    [ApiVersion("1.0")]
     [Route("api/items")]
     public class ItemsController(IMediator mediator) : ControllerBase
     {
