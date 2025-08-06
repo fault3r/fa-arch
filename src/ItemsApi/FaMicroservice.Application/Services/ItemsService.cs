@@ -13,12 +13,14 @@ namespace FaMicroservice.Application.Services
     {
         private readonly IItemsRepository _itemsRepository = itemsRepository;
 
-        private static ItemDto ToDTO(Item item) => new(
-            item.Id,
-            item.Name,
-            item.Description,
-            item.Price,
-            item.Updated);
+        private static ItemDto ToDTO(Item item) => new()
+        {
+            Id = item.Id,
+            Name = item.Name,
+            Description = item.Description,
+            Price = item.Price,
+            Updated = item.Updated
+        };
 
         public async Task<ServiceResult> GetAllAsync()
         {
