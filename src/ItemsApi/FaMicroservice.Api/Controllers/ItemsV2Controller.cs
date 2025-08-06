@@ -14,11 +14,13 @@ namespace FaMicroservice.Api.Controllers
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAllAsync()
         {
             var result = await _mediator.Send(new GetAllQuery());
+            List<ItemDto> nItems = [];
             foreach (var item in result.Items)
             {
-                result.Items
+                decimal nPrice = item.Price + 26;
+                nItems.Add(item with { Price = nPrice });
             }
-            return Ok(result);
+            return Ok(nItems);
         }
     }
 }
