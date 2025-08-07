@@ -10,6 +10,7 @@ using static FaMicroservice.Application.DTOs.ServiceResult;
 namespace FaMicroservice.Api.Controllers
 {
     [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/items")]
     public class ItemsV1Controller(IMediator mediator) : ItemsController(mediator)
     {
         [HttpGet]
