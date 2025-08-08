@@ -1,11 +1,10 @@
 using System;
 using FaMicroservice.Domain.Entities;
 using FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument;
-using MongoDB.Bson;
 
 namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
 {
-    public class ItemDocument : IDocument
+    public class ItemDocument : MongoDocument
     {
         public required string Name { get; set; }
 

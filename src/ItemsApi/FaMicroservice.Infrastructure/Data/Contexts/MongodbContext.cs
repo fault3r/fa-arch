@@ -8,7 +8,8 @@ namespace FaMicroservice.Infrastructure.Data.Contexts
 {
     public class MongodbContext(IOptions<MongodbSettings> settings)
     {
-        public IMongoCollection<ItemDocument> Items { get; } = new MongoClient(settings.Value.ConnectionString)
+        public IMongoCollection<ItemDocument> Items { get; } =
+            new MongoClient(settings.Value.ConnectionString)
                 .GetDatabase(settings.Value.DatabaseName)
                 .GetCollection<ItemDocument>(settings.Value.CollectionName);
     }

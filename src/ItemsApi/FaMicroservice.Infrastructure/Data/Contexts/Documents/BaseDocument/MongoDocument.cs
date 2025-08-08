@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument
 {
-    public class IDocument
+    public class MongoDocument
     {
         [BsonId]
         [BsonElement("Id")]

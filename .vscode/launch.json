@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: FaMicroservice.Api [Default Configuration]",
+            "name": "C#: microservice-fa Debug",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj"
+            "projectPath": "${workspaceFolder}/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",      
         }
-    ]
+    ]    
 }
