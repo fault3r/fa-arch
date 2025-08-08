@@ -1,5 +1,5 @@
 using System;
-using static FaMicroservice.Application.DTOs.ItemDTOs;
+using FaMicroservice.Application.MediatR.DTOs;
 
 namespace FaMicroservice.Application.DTOs
 {

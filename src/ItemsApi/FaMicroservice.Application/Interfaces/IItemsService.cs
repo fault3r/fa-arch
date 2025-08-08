@@ -1,6 +1,6 @@
 using System;
 using FaMicroservice.Application.DTOs;
-using static FaMicroservice.Application.DTOs.ItemDTOs;
+using FaMicroservice.Application.MediatR.DTOs;
 
 namespace FaMicroservice.Application.Interfaces
 {

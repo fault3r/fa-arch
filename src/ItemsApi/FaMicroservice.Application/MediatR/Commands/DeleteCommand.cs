@@ -2,9 +2,9 @@ using System;
 using FaMicroservice.Application.DTOs;
 using MediatR;
 
-namespace FaMicroservice.Application.Queries
+namespace FaMicroservice.Application.MediatR.Commands
 {
-    public class GetByIdQuery : IRequest<ServiceResult>
+    public class DeleteCommand : IRequest<ServiceResult>
     {
         public required string Id { get; set; }
     }

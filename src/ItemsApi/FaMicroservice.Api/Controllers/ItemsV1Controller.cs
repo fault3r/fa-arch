@@ -1,10 +1,10 @@
 using System;
 using FaMicroservice.Api.Controllers.BaseController;
-using FaMicroservice.Application.Commands;
-using FaMicroservice.Application.Queries;
+using FaMicroservice.Application.MediatR.Commands;
+using FaMicroservice.Application.MediatR.DTOs;
+using FaMicroservice.Application.MediatR.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using static FaMicroservice.Application.DTOs.ItemDTOs;
 using static FaMicroservice.Application.DTOs.ServiceResult;
 
 namespace FaMicroservice.Api.Controllers

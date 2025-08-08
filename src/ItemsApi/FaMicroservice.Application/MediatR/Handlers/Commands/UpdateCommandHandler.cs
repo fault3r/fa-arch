@@ -1,10 +1,10 @@
 using System;
-using FaMicroservice.Application.Commands;
 using FaMicroservice.Application.DTOs;
 using FaMicroservice.Application.Interfaces;
+using FaMicroservice.Application.MediatR.Commands;
 using MediatR;
 
-namespace FaMicroservice.Application.Handlers.Commands
+namespace FaMicroservice.Application.MediatR.Handlers.Commands
 {
     public class UpdateCommandHandler(IItemsService itemsService) : IRequestHandler<UpdateCommand, ServiceResult>
     {

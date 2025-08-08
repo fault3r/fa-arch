@@ -1,9 +1,9 @@
 
 using FaMicroservice.Api.Controllers.BaseController;
-using FaMicroservice.Application.Queries;
+using FaMicroservice.Application.MediatR.DTOs;
+using FaMicroservice.Application.MediatR.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using static FaMicroservice.Application.DTOs.ItemDTOs;
 
 namespace FaMicroservice.Api.Controllers
 {

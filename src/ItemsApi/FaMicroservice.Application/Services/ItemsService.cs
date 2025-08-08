@@ -1,10 +1,10 @@
 using System;
 using FaMicroservice.Application.DTOs;
 using FaMicroservice.Application.Interfaces;
+using FaMicroservice.Application.MediatR.DTOs;
 using FaMicroservice.Domain.DTOs;
 using FaMicroservice.Domain.Entities;
 using FaMicroservice.Domain.Interfaces;
-using static FaMicroservice.Application.DTOs.ItemDTOs;
 using static FaMicroservice.Application.DTOs.ServiceResult;
 
 namespace FaMicroservice.Application.Services
@@ -17,8 +17,8 @@ namespace FaMicroservice.Application.Services
             item.Id,
             item.Name,
             item.Description,
-           item.Price,
-           item.Updated);
+            item.Price,
+            item.Updated);
 
         public async Task<ServiceResult> GetAllAsync()
         {
@@ -32,7 +32,7 @@ namespace FaMicroservice.Application.Services
 
         public async Task<ServiceResult> GetByIdAsync(string id)
         {
-            RepositoryResult result = await _itemsRepository.GetByIdAsync(id);
+            var result = await _itemsRepository.GetByIdAsync(id);
             if (result.Status == RepositoryResultStatus.InvalidId)
                 return new ServiceResult { Status = ServiceResultStatus.BadRequest };
             else if (result.Status == RepositoryResultStatus.NotFound)

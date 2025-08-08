@@ -1,9 +1,9 @@
 using System;
 using FaMicroservice.Application.DTOs;
+using FaMicroservice.Application.MediatR.DTOs;
 using MediatR;
-using static FaMicroservice.Application.DTOs.ItemDTOs;
 
-namespace FaMicroservice.Application.Commands
+namespace FaMicroservice.Application.MediatR.Commands
 {
     public class CreateCommand : IRequest<ServiceResult>
     {

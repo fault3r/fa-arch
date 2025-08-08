@@ -1,7 +1,7 @@
 using System;
-using FaMicroservice.Application.Handlers.Commands;
-using FaMicroservice.Application.Handlers.Queries;
 using FaMicroservice.Application.Interfaces;
+using FaMicroservice.Application.MediatR.Handlers.Commands;
+using FaMicroservice.Application.MediatR.Handlers.Queries;
 using FaMicroservice.Application.Services;
 using FaMicroservice.Domain.Interfaces;
 using FaMicroservice.Infrastructure.Configurations;
