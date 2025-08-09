@@ -1,8 +1,8 @@
 using System;
-using FaMicroservice.Domain.Entities;
-using FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument;
+using ItemService.Domain.Entities;
+using ItemService.Infrastructure.Data.Contexts.Documents.BaseDocument;
 
-namespace FaMicroservice.Infrastructure.Data.Contexts.Documents
+namespace ItemService.Infrastructure.Data.Contexts.Documents
 {
     public class ItemDocument : MongoDocument
     {

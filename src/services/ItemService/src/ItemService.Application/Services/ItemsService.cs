@@ -1,13 +1,13 @@
 using System;
-using FaMicroservice.Application.DTOs;
-using FaMicroservice.Application.Interfaces;
-using FaMicroservice.Application.MediatR.DTOs;
-using FaMicroservice.Domain.DTOs;
-using FaMicroservice.Domain.Entities;
-using FaMicroservice.Domain.Interfaces;
-using static FaMicroservice.Application.DTOs.ServiceResult;
+using ItemService.Application.DTOs;
+using ItemService.Application.Interfaces;
+using ItemService.Application.MediatR.DTOs;
+using ItemService.Domain.DTOs;
+using ItemService.Domain.Entities;
+using ItemService.Domain.Interfaces;
+using static ItemService.Application.DTOs.ServiceResult;
 
-namespace FaMicroservice.Application.Services
+namespace ItemService.Application.Services
 {
     public class ItemsService(IItemsRepository itemsRepository) : IItemsService
     {

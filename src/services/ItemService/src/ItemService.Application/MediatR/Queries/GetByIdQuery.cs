@@ -1,8 +1,8 @@
 using System;
-using FaMicroservice.Application.DTOs;
+using ItemService.Application.DTOs;
 using MediatR;
 
-namespace FaMicroservice.Application.MediatR.Queries
+namespace ItemService.Application.MediatR.Queries
 {
     public class GetByIdQuery : IRequest<ServiceResult>
     {

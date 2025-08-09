@@ -1,7 +1,7 @@
 using System;
-using FaMicroservice.Domain.Entities;
+using ItemService.Domain.Entities;
 
-namespace FaMicroservice.Domain.DTOs
+namespace ItemService.Domain.DTOs
 {
     public class RepositoryResult
     {

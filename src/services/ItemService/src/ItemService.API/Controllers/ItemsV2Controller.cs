@@ -1,11 +1,11 @@
 
-using FaMicroservice.Api.Controllers.BaseController;
-using FaMicroservice.Application.MediatR.DTOs;
-using FaMicroservice.Application.MediatR.Queries;
+using ItemService.Api.Controllers.BaseController;
+using ItemService.Application.MediatR.DTOs;
+using ItemService.Application.MediatR.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FaMicroservice.Api.Controllers
+namespace ItemService.Api.Controllers
 {
     [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/items")]

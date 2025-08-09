@@ -1,13 +1,13 @@
 using System;
-using FaMicroservice.Domain.DTOs;
-using FaMicroservice.Domain.Entities;
-using FaMicroservice.Domain.Interfaces;
-using FaMicroservice.Infrastructure.Data.Contexts;
-using FaMicroservice.Infrastructure.Data.Contexts.Documents;
+using ItemService.Domain.DTOs;
+using ItemService.Domain.Entities;
+using ItemService.Domain.Interfaces;
+using ItemService.Infrastructure.Data.Contexts;
+using ItemService.Infrastructure.Data.Contexts.Documents;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace FaMicroservice.Infrastructure.Repositories
+namespace ItemService.Infrastructure.Repositories
 {
     public class ItemsRepository(MongodbContext mongodbContext) : IItemsRepository
     {

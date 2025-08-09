@@ -1,6 +1,6 @@
 using System;
 
-namespace FaMicroservice.Infrastructure.Configurations
+namespace ItemService.Infrastructure.Configurations
 {
     public class MongodbSettings
     {

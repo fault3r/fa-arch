@@ -1,10 +1,10 @@
 using System;
-using FaMicroservice.Infrastructure.Configurations;
-using FaMicroservice.Infrastructure.Data.Contexts.Documents;
+using ItemService.Infrastructure.Configurations;
+using ItemService.Infrastructure.Data.Contexts.Documents;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace FaMicroservice.Infrastructure.Data.Contexts
+namespace ItemService.Infrastructure.Data.Contexts
 {
     public class MongodbContext(IOptions<MongodbSettings> settings)
     {

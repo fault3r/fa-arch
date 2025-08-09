@@ -1,8 +1,8 @@
 using System;
-using FaMicroservice.Application.DTOs;
-using FaMicroservice.Application.MediatR.DTOs;
+using ItemService.Application.DTOs;
+using ItemService.Application.MediatR.DTOs;
 
-namespace FaMicroservice.Application.Interfaces
+namespace ItemService.Application.Interfaces
 {
     public interface IItemsService
     {

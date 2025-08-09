@@ -1,10 +1,10 @@
 using System;
-using FaMicroservice.Application.DTOs;
-using FaMicroservice.Application.Interfaces;
-using FaMicroservice.Application.MediatR.Queries;
+using ItemService.Application.DTOs;
+using ItemService.Application.Interfaces;
+using ItemService.Application.MediatR.Queries;
 using MediatR;
 
-namespace FaMicroservice.Application.MediatR.Handlers.Queries
+namespace ItemService.Application.MediatR.Handlers.Queries
 {
     public class GetAllQueryHandler(IItemsService itemsService) : IRequestHandler<GetAllQuery, ServiceResult>
     {

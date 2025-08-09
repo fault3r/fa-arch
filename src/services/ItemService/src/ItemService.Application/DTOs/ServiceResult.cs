@@ -1,7 +1,7 @@
 using System;
-using FaMicroservice.Application.MediatR.DTOs;
+using ItemService.Application.MediatR.DTOs;
 
-namespace FaMicroservice.Application.DTOs
+namespace ItemService.Application.DTOs
 {
     public class ServiceResult
     {

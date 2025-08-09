@@ -2,7 +2,7 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace FaMicroservice.Infrastructure.Data.Contexts.Documents.BaseDocument
+namespace ItemService.Infrastructure.Data.Contexts.Documents.BaseDocument
 {
     public class MongoDocument
     {

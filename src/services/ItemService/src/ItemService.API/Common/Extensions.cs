@@ -1,16 +1,16 @@
 using System;
-using FaMicroservice.Application.Interfaces;
-using FaMicroservice.Application.MediatR.Handlers.Commands;
-using FaMicroservice.Application.MediatR.Handlers.Queries;
-using FaMicroservice.Application.Services;
-using FaMicroservice.Domain.Interfaces;
-using FaMicroservice.Infrastructure.Configurations;
-using FaMicroservice.Infrastructure.Data.Contexts;
-using FaMicroservice.Infrastructure.Repositories;
+using ItemService.Application.Interfaces;
+using ItemService.Application.MediatR.Handlers.Commands;
+using ItemService.Application.MediatR.Handlers.Queries;
+using ItemService.Application.Services;
+using ItemService.Domain.Interfaces;
+using ItemService.Infrastructure.Configurations;
+using ItemService.Infrastructure.Data.Contexts;
+using ItemService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 
-namespace FaMicroservice.Api.Common
+namespace ItemService.Api.Common
 {
     public static class Extensions
     {

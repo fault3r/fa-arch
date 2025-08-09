@@ -1,10 +1,10 @@
 using System;
-using FaMicroservice.Application.DTOs;
-using FaMicroservice.Application.Interfaces;
-using FaMicroservice.Application.MediatR.Commands;
+using ItemService.Application.DTOs;
+using ItemService.Application.Interfaces;
+using ItemService.Application.MediatR.Commands;
 using MediatR;
 
-namespace FaMicroservice.Application.MediatR.Handlers.Commands
+namespace ItemService.Application.MediatR.Handlers.Commands
 {
     public class DeleteCommandHandler(IItemsService itemsService) : IRequestHandler<DeleteCommand, ServiceResult>
     {

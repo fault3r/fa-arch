@@ -1,8 +1,8 @@
 using System;
-using FaMicroservice.Domain.DTOs;
-using FaMicroservice.Domain.Entities;
+using ItemService.Domain.DTOs;
+using ItemService.Domain.Entities;
 
-namespace FaMicroservice.Domain.Interfaces
+namespace ItemService.Domain.Interfaces
 {
     public interface IItemsRepository
     {

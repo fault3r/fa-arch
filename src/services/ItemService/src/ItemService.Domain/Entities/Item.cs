@@ -1,6 +1,6 @@
 using System;
 
-namespace FaMicroservice.Domain.Entities
+namespace ItemService.Domain.Entities
 {
     public class Item
     {
