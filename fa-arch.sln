@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F36A5159-40D1-47E6-8AD3-F0297D49EDFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{D13DEE12-9C66-4ECB-8197-692AF64BD833}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ItemService", "ItemService", "{74E394AB-8CEE-40EF-8DB7-90A5C14F0448}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A79DB611-CE28-449F-865A-4197550157F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.API", "src\services\ItemService\src\ItemService.API\ItemService.API.csproj", "{F7534474-3325-42DD-960E-EB6352AD2205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.Application", "src\services\ItemService\src\ItemService.Application\ItemService.Application.csproj", "{C03EC8B1-8F64-4C76-B583-EF924B229F64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.Domain", "src\services\ItemService\src\ItemService.Domain\ItemService.Domain.csproj", "{2D632091-3956-4E8A-B700-38F9A7233D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.Infrastructure", "src\services\ItemService\src\ItemService.Infrastructure\ItemService.Infrastructure.csproj", "{FC34957C-6C5F-41ED-AF95-6DD361CCAA47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.Common", "src\services\ItemService\src\ItemService.Common\ItemService.Common.csproj", "{8D7D52B3-B385-403F-9B55-A0717D27B071}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7534474-3325-42DD-960E-EB6352AD2205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7534474-3325-42DD-960E-EB6352AD2205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7534474-3325-42DD-960E-EB6352AD2205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7534474-3325-42DD-960E-EB6352AD2205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03EC8B1-8F64-4C76-B583-EF924B229F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03EC8B1-8F64-4C76-B583-EF924B229F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03EC8B1-8F64-4C76-B583-EF924B229F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03EC8B1-8F64-4C76-B583-EF924B229F64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D632091-3956-4E8A-B700-38F9A7233D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D632091-3956-4E8A-B700-38F9A7233D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D632091-3956-4E8A-B700-38F9A7233D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D632091-3956-4E8A-B700-38F9A7233D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC34957C-6C5F-41ED-AF95-6DD361CCAA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC34957C-6C5F-41ED-AF95-6DD361CCAA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC34957C-6C5F-41ED-AF95-6DD361CCAA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC34957C-6C5F-41ED-AF95-6DD361CCAA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7D52B3-B385-403F-9B55-A0717D27B071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7D52B3-B385-403F-9B55-A0717D27B071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7D52B3-B385-403F-9B55-A0717D27B071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7D52B3-B385-403F-9B55-A0717D27B071}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D13DEE12-9C66-4ECB-8197-692AF64BD833} = {F36A5159-40D1-47E6-8AD3-F0297D49EDFC}
+		{74E394AB-8CEE-40EF-8DB7-90A5C14F0448} = {D13DEE12-9C66-4ECB-8197-692AF64BD833}
+		{A79DB611-CE28-449F-865A-4197550157F2} = {74E394AB-8CEE-40EF-8DB7-90A5C14F0448}
+		{F7534474-3325-42DD-960E-EB6352AD2205} = {A79DB611-CE28-449F-865A-4197550157F2}
+		{C03EC8B1-8F64-4C76-B583-EF924B229F64} = {A79DB611-CE28-449F-865A-4197550157F2}
+		{2D632091-3956-4E8A-B700-38F9A7233D45} = {A79DB611-CE28-449F-865A-4197550157F2}
+		{FC34957C-6C5F-41ED-AF95-6DD361CCAA47} = {A79DB611-CE28-449F-865A-4197550157F2}
+		{8D7D52B3-B385-403F-9B55-A0717D27B071} = {A79DB611-CE28-449F-865A-4197550157F2}
+	EndGlobalSection
+EndGlobal

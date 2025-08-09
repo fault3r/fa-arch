@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj": {}
+    "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj": {}
   },
   "projects": {
-    "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj": {
+    "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
         "projectName": "FaMicroservice.Api",
-        "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
+        "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/obj/",
+        "outputPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -27,11 +27,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj": {
-                "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj"
+              "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj"
               },
-              "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj": {
-                "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj"
+              "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj"
               }
             }
           }
@@ -90,14 +90,14 @@
         }
       }
     },
-    "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj": {
+    "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj",
         "projectName": "FaMicroservice.Application",
-        "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj",
+        "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/obj/",
+        "outputPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -113,8 +113,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
-                "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj"
+              "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj"
               }
             }
           }
@@ -160,14 +160,14 @@
         }
       }
     },
-    "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
+    "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj",
         "projectName": "FaMicroservice.Domain",
-        "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj",
+        "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/obj/",
+        "outputPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -220,14 +220,14 @@
         }
       }
     },
-    "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj": {
+    "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
+        "projectUniqueName": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
         "projectName": "FaMicroservice.Infrastructure",
-        "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
+        "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
         "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-        "outputPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/obj/",
+        "outputPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -243,8 +243,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
-                "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj"
+              "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
+                "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj"
               }
             }
           }

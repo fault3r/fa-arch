@@ -1400,11 +1400,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
+      "projectUniqueName": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
       "projectName": "FaMicroservice.Api",
-      "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
+      "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/FaMicroservice.Api.csproj",
       "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-      "outputPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Api/obj/",
+      "outputPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -1420,11 +1420,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj": {
-              "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj"
+            "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Application/FaMicroservice.Application.csproj"
             },
-            "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj": {
-              "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj"
+            "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj"
             }
           }
         }

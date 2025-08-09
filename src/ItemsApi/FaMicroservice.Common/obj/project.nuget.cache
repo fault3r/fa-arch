@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xEWnDdkVjCY=",
+  "dgSpecHash": "BcG3o9l3ZUw=",
   "success": true,
-  "projectFilePath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Common/FaMicroservice.Common.csproj",
+  "projectFilePath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Common/FaMicroservice.Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

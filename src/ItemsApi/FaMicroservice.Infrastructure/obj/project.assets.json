@@ -932,11 +932,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
+      "projectUniqueName": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
       "projectName": "FaMicroservice.Infrastructure",
-      "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
+      "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/FaMicroservice.Infrastructure.csproj",
       "packagesPath": "/home/hamed-damavandi/.nuget/packages/",
-      "outputPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Infrastructure/obj/",
+      "outputPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/hamed-damavandi/.nuget/NuGet/NuGet.Config"
@@ -952,8 +952,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
-              "projectPath": "/home/hamed-damavandi/Documents/microservice-fa/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj"
+            "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj": {
+              "projectPath": "/home/hamed-damavandi/Documents/fa-arch/src/ItemsApi/FaMicroservice.Domain/FaMicroservice.Domain.csproj"
             }
           }
         }
