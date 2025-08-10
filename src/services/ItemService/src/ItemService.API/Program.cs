@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
         options.SuppressAsyncSuffixInActionNames = false;
     });
 
-    builder.Services.AddApplicationConfiguration(builder.Configuration);
+    builder.Services.AddApiConfiguration(builder.Configuration);
 
     builder.Services.AddApiVersioningConfiguration();
 

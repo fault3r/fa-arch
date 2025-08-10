@@ -507,7 +507,6 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "ItemService.Domain": "1.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.7",
           "MongoDB.Driver": "3.4.1"
         },
         "compile": {
@@ -1391,7 +1390,8 @@
       "ItemService.Application >= 1.0.0",
       "ItemService.Infrastructure >= 1.0.0",
       "MediatR >= 13.0.0",
-      "Microsoft.AspNetCore.Mvc.Versioning >= 5.1.0"
+      "Microsoft.AspNetCore.Mvc.Versioning >= 5.1.0",
+      "Microsoft.Extensions.Options.ConfigurationExtensions >= 9.0.7"
     ]
   },
   "packageFolders": {
@@ -1452,6 +1452,10 @@
           "Microsoft.AspNetCore.Mvc.Versioning": {
             "target": "Package",
             "version": "[5.1.0, )"
+          },
+          "Microsoft.Extensions.Options.ConfigurationExtensions": {
+            "target": "Package",
+            "version": "[9.0.7, )"
           }
         },
         "imports": [

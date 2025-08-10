@@ -9,15 +9,23 @@ using ItemService.Infrastructure.Data.Contexts;
 using ItemService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace ItemService.Api.Common
 {
     public static class Extensions
     {
-        public static IServiceCollection AddApplicationConfiguration(this IServiceCollection services, ConfigurationManager configuration)
+        public static IServiceCollection AddApiConfiguration(this IServiceCollection services, ConfigurationManager configuration)
         {
             services.Configure<MongodbSettings>(configuration.GetSection(nameof(MongodbSettings)));
-            services.AddScoped<MongodbContext>();
+            services.AddScoped<MongodbContext>(provider =>
+            {
+                var settings = provider.GetRequiredService<IOptions<MongodbSettings>>().Value;
+                var client = new MongoClient(settings.ConnectionString);
+                var database = client.GetDatabase(settings.DatabaseName);
+                return new MongodbContext(database, settings.CollectionName);
+            });
             services.AddScoped<IItemsRepository, ItemsRepository>();
             services.AddScoped<IItemsService, ItemsService>();
             return services;
