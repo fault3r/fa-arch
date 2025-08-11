@@ -1,30 +1,48 @@
-# Use the official .NET SDK image as the base image
+# ========================================
+# BUILD STAGE (SDK Image - for building)
+# ========================================
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-# Set the working directory
+# Set working directory
 WORKDIR /src
 
-# Copy project files (adjusted for the new structure)
-COPY src/fa.domain/fa.domain.csproj ./fa.domain/
-COPY src/fa.application/fa.application.csproj ./fa.application/
-COPY src/fa.infrastructure/fa.infrastructure.csproj ./fa.infrastructure/
-COPY src/fa.api/fa.api.csproj ./fa.api/
+# Copy solution and project files
+COPY ["src/ItemService.API/ItemService.API.csproj", "src/ItemService.API/"]
+COPY ["src/ItemService.Application/ItemService.Application.csproj", "src/ItemService.Application/"]
+COPY ["src/ItemService.Domain/ItemService.Domain.csproj", "src/ItemService.Domain/"]
+COPY ["src/ItemService.Infrastructure/MyApp.Infrastructure.csproj", "src/ItemService.Infrastructure/"]
 
-# Restore dependencies
-RUN dotnet restore src/fa.api/fa.api.csproj
+# Restore NuGet packages
+RUN dotnet restore "src/ItemService.API/ItemService.API.csproj"
 
-# Copy all source files
-COPY src/ .
-
-# Build the application
-RUN dotnet build src/fa.api/fa.api.csproj -c Release -o /app/build
+# Copy all source code
+COPY . .
 
 # Publish the application
-FROM build AS publish
-RUN dotnet publish src/fa.api/fa.api.csproj -c Release -o /app/publish
+RUN dotnet publish "src/ItemService.API/ItemService.API.csproj" \
+    -c Release \
+    -o /app/publish \
+    --no-restore
 
-# Final stage: runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+# ========================================
+# RUNTIME STAGE (ASP.NET Image - for execution)
+# ========================================
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+
+# Set working directory
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "fa.api.dll"]
+
+# Create a non-root user
+RUN adduser --disabled-password --gecos "" appuser && \
+    chown appuser:appuser /app
+USER appuser
+
+# Copy from build stage
+COPY --from=build --chown=appuser:appuser /app/publish .
+
+# Expose ports (adjust as needed)
+EXPOSE 5
+ENV ASPNETCORE_URLS=http://+:8080
+
+# Entry point
+ENTRYPOINT ["dotnet", "ItemService.API.dll"]
