@@ -16,10 +16,10 @@ namespace ItemService.Api.Common
 {
     public static class Extensions
     {
-        public static IServiceCollection AddApiConfiguration(this IServiceCollection services, ConfigurationManager configuration)
+        public static IServiceCollection AddApiDependencies(this IServiceCollection services, ConfigurationManager configuration)
         {
             services.Configure<MongodbSettings>(configuration.GetSection(nameof(MongodbSettings)));
-            services.AddScoped<MongodbContext>(provider =>
+            services.AddScoped(typeof(MongodbContext), provider =>
             {
                 var settings = provider.GetRequiredService<IOptions<MongodbSettings>>().Value;
                 var client = new MongoClient(settings.ConnectionString);

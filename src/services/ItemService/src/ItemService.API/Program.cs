@@ -4,26 +4,25 @@ using ItemService.Api.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
-    builder.Services.AddControllers(options =>
-    {
-        options.SuppressAsyncSuffixInActionNames = false;
-    });
+builder.Services.AddControllers(options =>
+{
+    options.SuppressAsyncSuffixInActionNames = false;
+});
 
-    builder.Services.AddApiConfiguration(builder.Configuration);
+builder.Services.AddApiDependencies(builder.Configuration);
 
-    builder.Services.AddApiVersioningConfiguration();
+builder.Services.AddApiVersioningConfiguration();
 
-    builder.Services.AddMediatRConfiguration();
-
+builder.Services.AddMediatRConfiguration();
 
 var app = builder.Build();
 
-    if (app.Environment.IsDevelopment())
-        app.UseDeveloperExceptionPage();
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
 
-    app.UseHttpsRedirection();
-    app.UseAuthorization();
+app.UseAuthorization();
+app.MapControllers();
 
-    app.MapControllers();
-
-    app.Run();
+app.Run();
