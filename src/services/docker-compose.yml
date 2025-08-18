@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  item-service:
+    build:
+      context: ./ItemService
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005" 
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
