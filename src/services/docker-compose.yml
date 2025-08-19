@@ -1,15 +1,13 @@
 version: '3.8'
 
 services:
-  item-service:
-    build:
-      context: ./ItemService
-      dockerfile: Dockerfile
+  mongo:
+    image: mongo
+    container_name: mongo
     ports:
-      - "5005:5005" 
-    networks:
-      - mynetwork
+      - 27017:27017
+    volumes:
+      - mongodbdata:/data/db
 
-networks:
-  mynetwork:
-    driver: bridge
+volumes:
+  mongodbdata:

@@ -1,0 +1,16 @@
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/bin/Release/net8.0/ItemService.Application.deps.json
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/bin/Release/net8.0/ItemService.Application.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/bin/Release/net8.0/ItemService.Application.pdb
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/bin/Release/net8.0/ItemService.Domain.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/bin/Release/net8.0/ItemService.Domain.pdb
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.csproj.AssemblyReference.cache
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.AssemblyInfoInputs.cache
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.AssemblyInfo.cs
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.csproj.CoreCompileInputs.cache
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.sourcelink.json
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemServ.4516437C.Up2Date
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/refint/ItemService.Application.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ItemService.Application.pdb
+/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Application/obj/Release/net8.0/ref/ItemService.Application.dll
