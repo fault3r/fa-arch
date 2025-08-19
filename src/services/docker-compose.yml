@@ -8,6 +8,25 @@ services:
       - 27017:27017
     volumes:
       - mongodbdata:/data/db
+    networks:
+      - archnet
+
+  itemservice:
+    build:
+      context: ./ItemService
+      dockerfile: Dockerfile
+    ports:
+      - 5005:5005
+    networks:
+      - archnet
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - mongo
 
 volumes:
   mongodbdata:
+
+networks:
+  archnet:
+    driver: bridge

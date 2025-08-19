@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseAuthorization();
+app.UseHttpsRedirection();
 app.MapControllers();
 
-app.Run("http://localhost:5005");
+app.Run("http://+:5005");
