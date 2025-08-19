@@ -13,13 +13,7 @@ namespace ItemService.Api.Controllers
     [Route("api/v{version:apiVersion}/items")]
     public class ItemsV1Controller(IMediator mediator) : ItemsController(mediator)
     {
-        [Route("/hello")]
-        [HttpGet]
-        public string hello()
-        {
-            return "hello fault3r.";
-        }
-
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAllAsync()
         {
