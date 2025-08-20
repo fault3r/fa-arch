@@ -17,12 +17,12 @@ services:
     build:
       context: ./ItemService
       dockerfile: Dockerfile
+    depends_on:
+      - mongo
     ports:
       - 5005:5005
     networks:
       - archnet
-    depends_on:
-      - mongo
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
 
