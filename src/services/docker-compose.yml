@@ -26,6 +26,18 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
 
+  jwtservice:
+    container_name: jwtservice
+    build:
+      context: ./JwtService
+      dockerfile: Dockerfile
+    ports:
+      - 5006:5006
+    networks:
+      - archnet
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
 volumes:
   mongodbdata:
 

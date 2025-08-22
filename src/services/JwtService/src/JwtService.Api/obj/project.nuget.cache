@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AkPe2MV+2TE=",
+  "success": true,
+  "projectFilePath": "/home/hamed-damavandi/Documents/fa-arch/src/services/JwtService/src/JwtService.Api/JwtService.Api.csproj",
+  "expectedPackageFiles": [
+    "/home/hamed-damavandi/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.18/microsoft.netcore.app.host.linux-x64.8.0.18.nupkg.sha512"
+  ],
+  "logs": []
+}
