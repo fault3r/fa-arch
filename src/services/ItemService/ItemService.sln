@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{036CB6E3-A963-4F20-AF99-E9B406DCB5E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.API", "src\ItemService.API\ItemService.API.csproj", "{86CC2186-735F-4B01-B016-EB0002DDBEC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.Api", "src\ItemService.Api\ItemService.Api.csproj", "{86CC2186-735F-4B01-B016-EB0002DDBEC1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemService.Domain", "src\ItemService.Domain\ItemService.Domain.csproj", "{797A7612-CEF4-48B3-BA96-1D2DB4242F05}"
 EndProject

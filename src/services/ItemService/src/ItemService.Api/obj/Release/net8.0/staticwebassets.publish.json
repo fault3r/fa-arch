@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "IsDTAADF7pZAvYCK8B6NoIvK37VXkuMsYFXnqc6Iswk=",
+  "Source": "ItemService.Api",
+  "BasePath": "_content/ItemService.Api",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
