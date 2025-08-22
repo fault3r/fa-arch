@@ -1,12 +1,12 @@
 
 using System;
-using JwtService.Api.Extensions;
+using JwtService.Api.JwtAuthentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddJwtConfiguration(builder.Configuration.GetSection("Jwt"));
-
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddJwtConfiguration(builder.Configuration.GetSection("Jwt"));
 
 var app = builder.Build();
 
@@ -17,10 +17,18 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/token", () =>
 {
-    return Results.Ok(new { token = "token" });
+    var settings = builder.Configuration.GetSection("Jwt");
+    var token = JwtToken.Generate("hamed", new JwtSettings
+    {
+        Key = settings["Key"],
+        Issuer = settings["Issuer"],
+        Audience = settings["Audience"],
+    });
+    return Results.Ok(new { Token = token });
 });
 
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
