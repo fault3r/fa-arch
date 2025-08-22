@@ -10,10 +10,10 @@ using static ItemService.Application.DTOs.ServiceResult;
 namespace ItemService.Api.Controllers
 {
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/items")]
+    [Route("api/v1/items")]
     public class ItemsV1Controller(IMediator mediator) : ItemsController(mediator)
     {
-        
+        [MapToApiVersion("1.0")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAllAsync()
         {
@@ -21,6 +21,7 @@ namespace ItemService.Api.Controllers
             return Ok(result.Items);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpGet]
         [Route("{id}")]
         public async Task<ActionResult<ItemDto?>> GetByIdAsync(string id)
@@ -33,6 +34,7 @@ namespace ItemService.Api.Controllers
             return Ok(result.Items.FirstOrDefault());
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPost]
         public async Task<ActionResult<ItemDto?>> CreateAsync([FromBody] CreateItemDto item)
         {
@@ -43,6 +45,7 @@ namespace ItemService.Api.Controllers
             return CreatedAtAction(nameof(GetByIdAsync), new { id = newItem?.Id }, newItem);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPut]
         [Route("{id}")]
         public async Task<ActionResult<ItemDto?>> UpdateAsync(string id, [FromBody] UpdateItemDto item)
@@ -55,7 +58,8 @@ namespace ItemService.Api.Controllers
             var updatedItem = result.Items.FirstOrDefault();
             return Ok(updatedItem);
         }
-
+        
+        [MapToApiVersion("1.0")]
         [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult> DeleteAsync(string id)

@@ -11,6 +11,7 @@ namespace ItemService.Api.Controllers
     [Route("api/v{version:apiVersion}/items")]
     public class ItemsV2Controller(IMediator mediator) : ItemsController(mediator)
     {
+        [MapToApiVersion("2.0")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAllAsync()
         {
