@@ -1,6 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
+
+using System;
+using JwtService.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddJwtConfiguration(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -17,5 +21,7 @@ app.MapGet("/token", () =>
 });
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run("http://+:5006");
