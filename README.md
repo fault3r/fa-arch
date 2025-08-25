@@ -15,3 +15,4 @@
 - MongoDb
 - Api Gateway
 - Ocelot
+- JWToken
