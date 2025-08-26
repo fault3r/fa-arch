@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using ItemService.Application.Interfaces;
 using ItemService.Application.MediatR.Handlers.Commands;
 using ItemService.Application.MediatR.Handlers.Queries;
@@ -7,9 +8,11 @@ using ItemService.Domain.Interfaces;
 using ItemService.Infrastructure.Configurations;
 using ItemService.Infrastructure.Data.Contexts;
 using ItemService.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 
 namespace ItemService.Api.Common
@@ -52,10 +55,33 @@ namespace ItemService.Api.Common
                 options.ReportApiVersions = true;
                 options.ApiVersionReader = ApiVersionReader.Combine(
                     new UrlSegmentApiVersionReader()
-                        // new QueryStringApiVersionReader("v"),
-                        // new HeaderApiVersionReader("api-version"));
+                // new QueryStringApiVersionReader("v"),
+                // new HeaderApiVersionReader("api-version"));
                 );
             });
+        }
+
+        public static IServiceCollection AddJwtConfiguration(this IServiceCollection services, IConfigurationSection settings)
+        {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(options =>
+                {                    
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings["Key"]??"key")),
+                        ValidIssuer = settings["Issuer"],
+                        ValidAudience = settings["Audience"],
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidateLifetime = true,
+                    };
+                });
+            services.AddAuthorization();            
+            return services;
         }
     }
 }

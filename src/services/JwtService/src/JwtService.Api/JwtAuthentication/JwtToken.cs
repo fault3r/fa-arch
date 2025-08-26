@@ -24,6 +24,5 @@ namespace JwtService.Api.JwtAuthentication
                 signingCredentials: credential);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
     }
 }
