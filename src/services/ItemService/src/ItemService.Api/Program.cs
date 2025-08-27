@@ -1,18 +1,19 @@
 
 using System;
 using ItemService.Api.Common;
+using ItemService.Api.Middlewares;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddJwtConfiguration(builder.Configuration.GetSection("Jwt"));
+
 builder.Services.AddControllers(options =>
 {
     options.SuppressAsyncSuffixInActionNames = false;
 });
-
-builder.Services.AddJwtConfiguration(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddApiDependencies(builder.Configuration);
 
@@ -22,7 +23,7 @@ builder.Services.AddMediatRConfiguration();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
 });
 
 var app = builder.Build();
@@ -32,12 +33,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
         c.RoutePrefix = string.Empty;
     });
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthMiddleware();
+app.UseAuthorization();
 
 app.MapControllers();
 

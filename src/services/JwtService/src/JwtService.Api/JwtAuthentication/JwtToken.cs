@@ -12,7 +12,9 @@ namespace JwtService.Api.JwtAuthentication
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, name)
+                new Claim(ClaimTypes.Name, name),
+                new Claim(ClaimTypes.Role, "account"),
+                new Claim("Project","fa-arch"),
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.Key));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

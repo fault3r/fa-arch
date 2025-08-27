@@ -71,16 +71,20 @@ namespace ItemService.Api.Common
                 {                    
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings["Key"]??"key")),
-                        ValidIssuer = settings["Issuer"],
-                        ValidAudience = settings["Audience"],
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateIssuerSigningKey = true,
                         ValidateLifetime = true,
+                        ValidIssuer = settings["Issuer"],
+                        ValidAudience = settings["Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings["Key"]??
+                            throw new InvalidOperationException())),
                     };
                 });
-            services.AddAuthorization();            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("requireAccount", policy => policy.RequireRole("account"));
+            });
             return services;
         }
     }

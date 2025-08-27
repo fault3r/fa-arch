@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "HigwK7gkTBM+LrbflSwAcRGvkrm3meRtU1bFNeLt6dw=",
+  "Source": "JwtService.Api",
+  "BasePath": "_content/JwtService.Api",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
