@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ItemService.Api.Controllers
 {
     [Authorize(Policy = "requireAccount")]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class JwtController : ControllerBase
     {        

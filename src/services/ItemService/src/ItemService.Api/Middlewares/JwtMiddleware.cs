@@ -4,7 +4,7 @@ using System.Text.Json;
 namespace ItemService.Api.Middlewares
 {
 
-    public class AuthMiddleware(RequestDelegate next)
+    public class JwtMiddleware(RequestDelegate next)
     {
         private readonly RequestDelegate _next = next;
 
@@ -28,11 +28,11 @@ namespace ItemService.Api.Middlewares
         }
     }
 
-    public static class AuthMiddlewareExtensions
+    public static class JwtMiddlewareExtensions
     {
-        public static IApplicationBuilder UseAuthMiddleware(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseJwtMiddleware(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<AuthMiddleware>();
+            return builder.UseMiddleware<JwtMiddleware>();
         }
     }
 }
