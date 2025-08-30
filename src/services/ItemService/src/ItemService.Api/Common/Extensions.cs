@@ -7,6 +7,7 @@ using ItemService.Domain.Interfaces;
 using ItemService.Infrastructure.Configurations;
 using ItemService.Infrastructure.Data.Contexts;
 using ItemService.Infrastructure.Repositories;
+using ItemService.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Options;
@@ -30,6 +31,7 @@ namespace ItemService.Api.Common
             });
             services.AddScoped<IItemsRepository, ItemsRepository>();
             services.AddScoped<IItemsService, ItemsService>();
+            services.AddScoped<JwtService>();
             return services;
         }
 
@@ -60,7 +62,7 @@ namespace ItemService.Api.Common
             });
         }
 
-        public static IServiceCollection AddJwtHttpConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddJwtHttpConfiguration(this IServiceCollection services, IConfigurationSection settings)
         {
             var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(5));
             var retryPolicy = HttpPolicyExtensions
@@ -69,7 +71,10 @@ namespace ItemService.Api.Common
             var circuitBreakerPolicy = HttpPolicyExtensions
                 .HandleTransientHttpError()
                 .CircuitBreakerAsync(5, TimeSpan.FromSeconds(20));
-            services.AddHttpClient("JwtHttpClient")
+            services.AddHttpClient("JwtHttpClient", client =>
+            {
+                client.BaseAddress = new Uri(settings["Uri"] ?? throw new Exception());
+            })
                 .AddPolicyHandler(timeoutPolicy)
                 .AddPolicyHandler(retryPolicy)
                 .AddPolicyHandler(circuitBreakerPolicy);
