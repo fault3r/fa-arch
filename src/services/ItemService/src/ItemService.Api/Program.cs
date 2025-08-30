@@ -1,14 +1,11 @@
 
 using System;
 using ItemService.Api.Common;
-using ItemService.Api.Middlewares;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddJwtConfiguration(builder.Configuration.GetSection("Jwt"));
 
 builder.Services.AddControllers(options =>
 {
@@ -39,10 +36,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthentication();
-app.UseJwtMiddleware();
-app.UseAuthorization();
 
 app.MapControllers();
 

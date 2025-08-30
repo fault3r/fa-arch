@@ -1,9 +1,8 @@
 using System;
 using System.Text.Json;
 
-namespace ItemService.Api.Middlewares
+namespace JwtService.Api.Middlewares
 {
-
     public class JwtMiddleware(RequestDelegate next)
     {
         private readonly RequestDelegate _next = next;
