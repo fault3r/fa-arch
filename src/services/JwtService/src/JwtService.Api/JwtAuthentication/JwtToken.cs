@@ -8,11 +8,11 @@ namespace JwtService.Api.JwtAuthentication
 {
     public static class JwtToken
     {
-        public static string Generate(string name, JwtSettings settings)
+        public static string Generate(string uname, JwtSettings settings)
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, name),
+                new Claim(ClaimTypes.Name, uname),
                 new Claim(ClaimTypes.Role, "account"),
                 new Claim("Project","fa-arch"),
             };
