@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using Polly;
+using Polly.Extensions.Http;
 
 namespace ItemService.Api.Common
 {
@@ -52,10 +54,26 @@ namespace ItemService.Api.Common
                 options.ReportApiVersions = true;
                 options.ApiVersionReader = ApiVersionReader.Combine(
                     new UrlSegmentApiVersionReader()
-                    // new QueryStringApiVersionReader("v"),
-                    // new HeaderApiVersionReader("api-version"));
+                // new QueryStringApiVersionReader("v"),
+                // new HeaderApiVersionReader("api-version"));
                 );
             });
-        }  
+        }
+
+        public static IServiceCollection AddJwtHttpConfiguration(this IServiceCollection services)
+        {
+            var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(5));
+            var retryPolicy = HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .WaitAndRetryAsync(3, attemp => TimeSpan.FromSeconds(Math.Pow(2, attemp)));
+            var circuitBreakerPolicy = HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .CircuitBreakerAsync(5, TimeSpan.FromSeconds(20));
+            services.AddHttpClient("JwtHttpClient")
+                .AddPolicyHandler(timeoutPolicy)
+                .AddPolicyHandler(retryPolicy)
+                .AddPolicyHandler(circuitBreakerPolicy);
+            return services;
+        }
     }
 }
