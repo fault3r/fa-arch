@@ -52,8 +52,8 @@ namespace ItemService.Api.Common
                 options.ReportApiVersions = true;
                 options.ApiVersionReader = ApiVersionReader.Combine(
                     new UrlSegmentApiVersionReader()
-                // new QueryStringApiVersionReader("v"),
-                // new HeaderApiVersionReader("api-version"));
+                    // new QueryStringApiVersionReader("v"),
+                    // new HeaderApiVersionReader("api-version"));
                 );
             });
         }  
