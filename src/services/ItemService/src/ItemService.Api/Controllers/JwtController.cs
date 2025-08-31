@@ -11,11 +11,20 @@ namespace ItemService.Api.Controllers
 
         private readonly JwtService jwtService = jwtService;
 
+        [Route("{uname}")]
         [HttpGet]
-        public async Task<ActionResult> Jwt()
+        public async Task<ActionResult> Jwt([FromRoute] string uname)
         {
-            var token = await jwtService.GenerateToken("fault3r");
+            var token = await jwtService.GenerateToken(uname);
             return Ok(new { token });
+        }
+
+        [Route("validate/{token}")]
+        [HttpGet]
+        public async Task<ActionResult> Validate([FromRoute] string token)
+        {
+            var status = await jwtService.ValidateToken(token);
+            return Ok(new { status });
         }
     }
 }
