@@ -13,8 +13,15 @@ namespace ItemService.Infrastructure.Services
 
         public async Task<string> GenerateToken(string uname)
         {
-            var response = await httpClient.GetAsync($"token/{uname}");
-            return await response.Content.ReadAsStringAsync();
+            try
+            {
+                var response = await httpClient.GetAsync($"token/{uname}");
+                return await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

@@ -75,9 +75,9 @@ namespace ItemService.Api.Common
             {
                 client.BaseAddress = new Uri(settings["Uri"] ?? throw new Exception());
             })
-                .AddPolicyHandler(timeoutPolicy)
-                .AddPolicyHandler(retryPolicy)
-                .AddPolicyHandler(circuitBreakerPolicy);
+                .AddPolicyHandler(retryPolicy);
+                // .AddPolicyHandler(timeoutPolicy)
+                // .AddPolicyHandler(circuitBreakerPolicy)
             return services;
         }
     }
