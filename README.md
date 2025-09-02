@@ -6,6 +6,7 @@
 - Clean Architecture
 - Microservice
 - RestAPI
+- HTTP/REST
 - MediatR 
 - CQRS Pattern
 - JSON
