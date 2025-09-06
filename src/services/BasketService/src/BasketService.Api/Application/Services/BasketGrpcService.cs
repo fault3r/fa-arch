@@ -1,4 +1,5 @@
 using System;
+using BasketService.Api.Infrastructure.Data;
 using BasketService.Protos;
 using Grpc.Core;
 using LiteDB;
@@ -6,22 +7,19 @@ using static BasketService.Protos.BasketService;
 
 namespace BasketService.Api.Application.Services
 {
-    public class BasketGrpcService : BasketServiceBase
+    public class BasketGrpcService(LitedbContext database) : BasketServiceBase
     {
-        private readonly LiteDatabase liteDatabase;
-        public BasketGrpcService()
-        {
-            liteDatabase = new LiteDatabase(@"basketdb.db");
-        }
+        private readonly LitedbContext database = database;
 
         public override Task<Items> GetAll(GetAllRequest request, ServerCallContext context)
         {
-            return base.GetAll(request, context);
+            var response = new Items();
+            var items = database.Items.FindAll().AsEnumerable();
+            if (items != null)
+                response.Items_.AddRange(items);
+            return Task.FromResult(response);
         }
 
-        public override Task<Item> GetById(GetByIdRequest request, ServerCallContext context)
-        {
-            return base.GetById(request, context);
-        }
+        
     }
 } 
