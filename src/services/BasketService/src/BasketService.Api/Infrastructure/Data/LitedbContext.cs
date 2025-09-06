@@ -4,14 +4,8 @@ using LiteDB;
 
 namespace BasketService.Api.Infrastructure.Data
 {
-    public class LitedbContext
+    public class LitedbContext(LiteDatabase database, string collection)
     {
-        public ILiteCollection<Item> Items;
-
-        public LitedbContext(LiteDatabase database, string collection)
-        {
-            Items = database.GetCollection<Item>(collection);
-        }
-        
+        public ILiteCollection<Item> Items => database.GetCollection<Item>(collection);
     }
 }

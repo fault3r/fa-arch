@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option csharp_namespace = "ItemService.Infrastructure.Protos";
+
+package basket;
+
+message Item {
+    int32 id = 1;
+    string name = 2;    
+}
+
+message Items {
+    repeated Item items = 1;
+}
+
+service BasketService {
+  rpc GetById(GetByIdRequest) returns (Item);
+  rpc GetAll(GetAllRequest) returns (Items);
+  rpc Create(CreateRequest) returns (Item);
+  rpc Update(UpdateRequest) returns (Item);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetByIdRequest {
+    int32 id = 1;
+}
+
+message GetAllRequest {}
+
+message CreateRequest {
+    Item item = 1;
+}
+
+message UpdateRequest {
+    Item item = 1;
+}
+
+message DeleteRequest {
+    int32 id = 1;
+}
+
+message DeleteResponse {
+    int32 success = 1;
+}

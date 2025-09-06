@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "omyvulcaAqI=",
+  "dgSpecHash": "XFi1YAgoR7Y=",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Documents/fa-arch/src/services/ItemService/src/ItemService.Api/ItemService.Api.csproj",
   "expectedPackageFiles": [
     "/home/hamed-damavandi/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/google.protobuf/3.32.0/google.protobuf.3.32.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/grpc.core.api/2.71.0/grpc.core.api.2.71.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/grpc.net.client/2.71.0/grpc.net.client.2.71.0.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/grpc.net.common/2.71.0/grpc.net.common.2.71.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/mediatr/13.0.0/mediatr.13.0.0.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.1.0/microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",

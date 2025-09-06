@@ -11,6 +11,7 @@ builder.Services.AddControllers(options =>
     options.SuppressAsyncSuffixInActionNames = false;
 });
 
+builder.Services.AddGrpcConfiguration();
 builder.Services.AddApiDependencies(builder.Configuration);
 
 builder.Services.AddApiVersioningConfiguration();

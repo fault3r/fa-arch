@@ -76,8 +76,15 @@ namespace ItemService.Api.Common
                 client.BaseAddress = new Uri(settings["Uri"] ?? throw new Exception());
             })
                 .AddPolicyHandler(retryPolicy);
-                // .AddPolicyHandler(timeoutPolicy)
-                // .AddPolicyHandler(circuitBreakerPolicy)
+            // .AddPolicyHandler(timeoutPolicy)
+            // .AddPolicyHandler(circuitBreakerPolicy)
+            return services;
+        }
+
+
+        public static IServiceCollection AddGrpcConfiguration(this IServiceCollection services)
+        {
+            services.AddScoped<GrpcService>();
             return services;
         }
     }
