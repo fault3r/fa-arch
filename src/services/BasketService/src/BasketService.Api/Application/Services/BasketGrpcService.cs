@@ -2,7 +2,6 @@ using System;
 using BasketService.Api.Infrastructure.Data;
 using BasketService.Protos;
 using Grpc.Core;
-using LiteDB;
 using static BasketService.Protos.BasketService;
 
 namespace BasketService.Api.Application.Services
@@ -20,6 +19,44 @@ namespace BasketService.Api.Application.Services
             return Task.FromResult(response);
         }
 
-        
+        public override Task<Item> GetById(GetByIdRequest request, ServerCallContext context)
+        {
+            var item = database.Items.FindOne(p => p.Id == request.Id) ??
+                throw new RpcException(new Status(StatusCode.NotFound, "item not found"));
+            return Task.FromResult(item);
+        }
+
+        public override Task<Item> Create(CreateRequest request, ServerCallContext context)
+        {
+            try
+            {
+                var item = database.Items.Insert(new Item
+                {
+                    Id = request.Item.Id,
+                    Name = request.Item.Name,
+                });
+            }
+            catch
+            {
+                throw new RpcException(new Status(StatusCode.AlreadyExists, "item already exist!"));
+            }
+            return Task.FromResult(request.Item);
+        }
+
+        public override Task<Item> Update(UpdateRequest request, ServerCallContext context)
+        {
+            bool update = database.Items.Update(request.Item);
+            if (!update)
+                throw new RpcException(new Status(StatusCode.NotFound, "item not found"));
+            return Task.FromResult(request.Item);
+        }
+
+        public override Task<DeleteResponse> Delete(DeleteRequest request, ServerCallContext context)
+        {
+            var result = database.Items.DeleteMany(p => p.Id == request.Id);
+            if (result == 0)
+                throw new RpcException(new Status(StatusCode.NotFound, "item not found"));
+            return Task.FromResult(new DeleteResponse { Success = result });            
+        }
     }
 } 
