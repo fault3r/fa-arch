@@ -10,53 +10,43 @@ namespace BasketService.Api.Application.Services
     {
         private readonly LitedbContext database = database;
 
-        public override async Task<Items> GetAll(GetAllRequest request, ServerCallContext context)
+        public override async Task<GetAllResponse> GetAll(GetAllRequest request, ServerCallContext context)
         {
-            var response = new Items();
-            var items = database.Items.FindAll().AsEnumerable();
-            if (items != null)
-                response.Items_.AddRange(items);
+            var items = database.Items.FindAll();
+            var response = new GetAllResponse
+            {
+                Status = new ServiceResult
+                {
+                    Success = true,
+                    Message = "success.",
+                },
+            };
+            response.Items.Add(items);
             return await Task.FromResult(response);
         }
 
-        public override async Task<Item> GetById(GetByIdRequest request, ServerCallContext context)
+        public override async Task<GetByIdResponse> GetById(GetByIdRequest request, ServerCallContext context)
         {
-            var item = database.Items.FindOne(p => p.Id == request.Id) ??
-                throw new RpcException(new Status(StatusCode.NotFound, "item not found"));
-            return await Task.FromResult(item);
-        }
-
-        public override async Task<Item> Create(CreateRequest request, ServerCallContext context)
-        {
-            try
-            {
-                var item = database.Items.Insert(new Item
+            var item = database.Items.FindOne(p => p.Id == request.Id);
+            if (item is null)
+                return await Task.FromResult(new GetByIdResponse
                 {
-                    Id = request.Item.Id,
-                    Name = request.Item.Name,
+                    Status = new ServiceResult
+                    {
+                        Success = false,
+                        Message = "not found!",
+                    },
                 });
-            }
-            catch
+            return await Task.FromResult(new GetByIdResponse
             {
-                throw new RpcException(new Status(StatusCode.AlreadyExists, "item already exist!"));
-            }
-            return await Task.FromResult(request.Item);
-        }
+                Status = new ServiceResult
+                {
+                    Success = true,
+                    Message = "success.",
+                },
+                Item = item,
+            });
 
-        public override async Task<Item> Update(UpdateRequest request, ServerCallContext context)
-        {
-            bool update = database.Items.Update(request.Item);
-            if (!update)
-                throw new RpcException(new Status(StatusCode.NotFound, "item not found"));
-            return await Task.FromResult(request.Item);
-        }
-
-        public override async Task<DeleteResponse> Delete(DeleteRequest request, ServerCallContext context)
-        {
-            var result = database.Items.DeleteMany(p => p.Id == request.Id);
-            if (result == 0)
-                throw new RpcException(new Status(StatusCode.NotFound, "item not found"));
-            return await Task.FromResult(new DeleteResponse { Success = result });            
         }
     }
-} 
+}

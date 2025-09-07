@@ -4,41 +4,57 @@ option csharp_namespace = "BasketService.Protos";
 
 package basket;
 
-message Item {
-    int32 id = 1;
-    string name = 2;    
+message ServiceResult {
+    bool success = 1;
+    string message = 2;
 }
 
-message Items {
-    repeated Item items = 1;
+message Item {
+    int32 id = 1;
+    string name = 2;
 }
 
 service BasketService {
-  rpc GetById(GetByIdRequest) returns (Item);
-  rpc GetAll(GetAllRequest) returns (Items);
-  rpc Create(CreateRequest) returns (Item);
-  rpc Update(UpdateRequest) returns (Item);
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
   rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message GetAllRequest {}
+message GetAllResponse {
+    ServiceResult status = 1;
+    repeated Item items = 2; 
 }
 
 message GetByIdRequest {
     int32 id = 1;
 }
-
-message GetAllRequest {}
+message GetByIdResponse {
+    ServiceResult status = 1;
+    Item item = 2; 
+}
 
 message CreateRequest {
     Item item = 1;
+}
+message CreateResponse {
+    ServiceResult status = 1;
+    Item item = 2;
 }
 
 message UpdateRequest {
     Item item = 1;
 }
+message UpdateResponse {
+    ServiceResult status = 1;
+    Item item = 2;
+}
 
 message DeleteRequest {
     int32 id = 1;
 }
-
 message DeleteResponse {
-    int32 success = 1;
+    ServiceResult status = 1;     
 }
