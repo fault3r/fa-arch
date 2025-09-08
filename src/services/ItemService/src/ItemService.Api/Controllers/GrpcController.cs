@@ -13,17 +13,14 @@ namespace ItemService.Api.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAllAsync()
         {
-            var items = await grpcService.GetAllAsync();
-            return Ok(items);
+            return Ok();
         }
 
         [Route("GetById")]
         [HttpGet]
         public async Task<ActionResult> GetAllAsync([FromQuery] int id)
         {
-            var item = await grpcService.GetByIdAsync(id);
-            return Ok(item);
-
+            return Ok();
         }
     }
 }

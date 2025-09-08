@@ -1,64 +1,36 @@
 using System;
+using BasketService.Protos;
 using Grpc.Net.Client;
-using ItemService.Infrastructure.Protos;
-using static ItemService.Infrastructure.Protos.BasketService;
+using static BasketService.Protos.BasketService;
 
 namespace ItemService.Infrastructure.Services
 {
-    public record ItemGrpc(int Id, string Name);
+    public record GrpcItem(int Id, string Name);
 
     public class GrpcService
     {
-        private readonly BasketServiceClient client;
+        private readonly BasketServiceClient grpcClient;
 
         public GrpcService()
         {
-            var channel = GrpcChannel.ForAddress("http://localhost:5007");
-            client = new BasketServiceClient(channel);
+            var grpcClient = new BasketServiceClient(
+                GrpcChannel.ForAddress("http://localhost:5007"));
         }
 
-        public async Task<IEnumerable<ItemGrpc>> GetAllAsync()
+        public async Task<IEnumerable<GrpcItem>> GetAllAsync()
         {
-            var items = await client.GetAllAsync(new GetAllRequest());
-            return items.Items_.Select(r => new ItemGrpc(r.Id, r.Name));
+            var response = await grpcClient.GetAllAsync(new GetAllRequest());
+            return response.Items.Select(r => new GrpcItem(r.Id, r.Name));
         }
 
-        public async Task<ItemGrpc> GetByIdAsync(int id)
+        public async Task<GrpcItem?> GetByIdAsync(int id)
         {
-            var item = await client.GetByIdAsync(new GetByIdRequest { Id = id });
-            return new ItemGrpc(item.Id, item.Name);
+            var response = await grpcClient.GetByIdAsync(new GetByIdRequest { Id = id });
+            if (!response.Status.Success)
+                return null;
+            return new GrpcItem(response.Item.Id, response.Item.Name);
         }
 
-        public async Task<ItemGrpc> CreateAsync(int id, string name)
-        {
-            var item = await client.CreateAsync(new CreateRequest
-            {
-                Item = new Item
-                {
-                    Id = id,
-                    Name = name,
-                }
-            });
-            return new ItemGrpc(item.Id, item.Name);
-        }
-
-        public async Task<ItemGrpc> UpdateAsync(int id, string name)
-        {
-            var item = await client.UpdateAsync(new UpdateRequest
-            {
-                Item = new Item
-                {
-                    Id = id,
-                    Name = name,
-                }
-            });
-            return new ItemGrpc(item.Id, item.Name);
-        }
-
-        public async Task<int> DeleteAsync(int id)
-        {
-            var result = await client.DeleteAsync(new DeleteRequest { Id = id });
-            return result.Success;
-        }
+        
     }
 }

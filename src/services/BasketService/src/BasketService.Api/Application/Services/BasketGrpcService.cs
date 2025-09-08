@@ -1,7 +1,6 @@
 using System;
 using BasketService.Api.Infrastructure.Data;
 using BasketService.Protos;
-using Google.Protobuf;
 using Grpc.Core;
 using static BasketService.Protos.BasketService;
 
