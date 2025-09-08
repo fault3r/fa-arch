@@ -24,7 +24,4 @@
 <br><br> <img src="readme/jwt.png"> <br><br>
 
 <br>
-
-**BasketService**
-- Implement gRPC Server 
-<br><br> <img src="readme/GrpcService.png"> <br><br>
+<br> <img src="readme/GrpcService.png"> <br><br>
