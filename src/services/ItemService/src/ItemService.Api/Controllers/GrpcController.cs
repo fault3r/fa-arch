@@ -9,18 +9,45 @@ namespace ItemService.Api.Controllers
     {
         private readonly GrpcService grpcService = grpcService;
 
-        [Route("GetAll")]
+        [Route("all")]
         [HttpGet]
         public async Task<ActionResult> GetAllAsync()
         {
-            return Ok();
+            var items = await grpcService.GetAllAsync();
+            return Ok(items);
         }
 
-        [Route("GetById")]
+        [Route("{id}")]
         [HttpGet]
-        public async Task<ActionResult> GetAllAsync([FromQuery] int id)
+        public async Task<ActionResult> GetByIdAsync([FromRoute] string id)
         {
-            return Ok();
+            var item = await grpcService.GetByIdAsync(Convert.ToInt32(id));
+            return Ok(item);
         }
+
+        [Route("create")]
+        [HttpGet]
+        public async Task<ActionResult> CreateAsync([FromQuery] string name)
+        {
+            var item = await grpcService.CreateAsync(name);
+            return Ok(item);
+        }
+
+        [Route("update")]
+        [HttpGet]
+        public async Task<ActionResult> UpdateAsync([FromQuery] int id, string name)
+        {
+            var item = await grpcService.UpdateAsync(id, name);
+            return Ok(item);
+        }
+
+        [Route("delete")]
+        [HttpGet]
+        public async Task<ActionResult> DeleteAsync([FromQuery] int id)
+        {
+            bool item = await grpcService.DeleteAsync(id);
+            return Ok(item);
+        }
+
     }
 }

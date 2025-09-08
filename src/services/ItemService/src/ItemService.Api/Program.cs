@@ -18,7 +18,7 @@ builder.Services.AddApiVersioningConfiguration();
 
 builder.Services.AddMediatRConfiguration();
 
-builder.Services.AddJwtHttpConfiguration(builder.Configuration.GetSection("JwtService"));
+builder.Services.AddHttpClientConfiguration(builder.Configuration.GetSection("JwtService"));
 
 builder.Services.AddSwaggerGen(c =>
 {

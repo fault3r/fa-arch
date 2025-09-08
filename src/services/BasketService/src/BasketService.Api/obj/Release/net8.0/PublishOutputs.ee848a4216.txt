@@ -1,0 +1,17 @@
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/BasketService.Api
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/appsettings.Development.json
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/appsettings.json
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/BasketService.Api.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/BasketService.Api.runtimeconfig.json
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/BasketService.Api.pdb
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Google.Protobuf.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.AspNetCore.Server.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.AspNetCore.Server.ClientFactory.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.AspNetCore.Server.Reflection.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.Core.Api.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.Net.Client.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.Net.ClientFactory.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.Net.Common.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/Grpc.Reflection.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/LiteDB.dll
+/home/hamed-damavandi/Documents/fa-arch/src/services/BasketService/out/BasketService.Api.deps.json

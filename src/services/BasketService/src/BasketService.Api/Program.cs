@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<LitedbContext>(provider =>
 {
-    return new LitedbContext(new LiteDatabase(@"Infrastructure/Data/basketdb.db"), "basket");
+    string databaseName = "basket";
+    string connectionString = @$"{Path.Combine(Directory.GetCurrentDirectory(), databaseName + ".db")}";
+    return new LitedbContext(new LiteDatabase(connectionString), "basket");
 });
 
 builder.Services.AddGrpc();

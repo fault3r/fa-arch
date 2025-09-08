@@ -62,7 +62,7 @@ namespace ItemService.Api.Common
             });
         }
 
-        public static IServiceCollection AddJwtHttpConfiguration(this IServiceCollection services, IConfigurationSection settings)
+        public static IServiceCollection AddHttpClientConfiguration(this IServiceCollection services, IConfigurationSection settings)
         {
             var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(5));
             var retryPolicy = HttpPolicyExtensions
@@ -80,7 +80,6 @@ namespace ItemService.Api.Common
             // .AddPolicyHandler(circuitBreakerPolicy)
             return services;
         }
-
 
         public static IServiceCollection AddGrpcConfiguration(this IServiceCollection services)
         {

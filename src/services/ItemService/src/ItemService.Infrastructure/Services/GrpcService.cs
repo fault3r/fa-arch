@@ -13,8 +13,8 @@ namespace ItemService.Infrastructure.Services
 
         public GrpcService()
         {
-            var grpcClient = new BasketServiceClient(
-                GrpcChannel.ForAddress("http://localhost:5007"));
+            var channel = GrpcChannel.ForAddress("http://localhost:5007");
+            grpcClient = new BasketServiceClient(channel);
         }
 
         public async Task<IEnumerable<GrpcItem>> GetAllAsync()
