@@ -31,6 +31,34 @@ namespace ItemService.Infrastructure.Services
             return new GrpcItem(response.Item.Id, response.Item.Name);
         }
 
-        
+        public async Task<GrpcItem?> CreateAsync(string name)
+        {
+            var response = await grpcClient.CreateAsync(new CreateRequest
+            {
+                Item = new Item { Name = name },
+            });
+            if (!response.Status.Success)
+                return null;
+            return new GrpcItem(response.Item.Id, response.Item.Name);
+        }
+
+        public async Task<GrpcItem?> UpdateAsync(int id, string name)
+        {
+            var response = await grpcClient.UpdateAsync(new UpdateRequest
+            {
+                Item = new Item { Id = id, Name = name },
+            });
+            if (!response.Status.Success)
+                return null;
+            return new GrpcItem(id, name);
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var response = await grpcClient.DeleteAsync(new DeleteRequest { Id = id });
+            if (!response.Status.Success)
+                return false;
+            return true;
+        }
     }
 }
