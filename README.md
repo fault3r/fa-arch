@@ -12,16 +12,20 @@
 - Mongodb
 - MediatR/CQRS DessignPattern
 - ApiVersioning
-- HttpClient HTTP/REST-Polly
-- gRPC Client 
+- HttpClient HTTP/REST-Polly -> JwtService
+- gRPC Client -> GrpcService
 <br><br> <img src="readme/ItemService.png"> <br>
 <img src="readme/ItemService-schemas.png"> <br><br>
 
 <br>
 
 **JwtService**
-- Json Web Token Implement
+- Create JWT Token
+- Validate Token
 <br><br> <img src="readme/jwt.png"> <br><br>
 
 <br>
-<br> <img src="readme/GrpcService.png"> <br><br>
+
+**GrpcService**
+- gRPC Server - CRUD Operations
+<br><br> <img src="readme/GrpcService.png"> <br><br>
