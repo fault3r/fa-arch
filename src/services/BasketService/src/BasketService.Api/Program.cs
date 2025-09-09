@@ -1,3 +1,4 @@
+using BasketService.Api.Application.Interceptors;
 using BasketService.Api.Application.Services;
 using BasketService.Api.Infrastructure.Data;
 using LiteDB;
@@ -12,8 +13,13 @@ builder.Services.AddScoped<LitedbContext>(provider =>
     return new LitedbContext(new LiteDatabase(connectionString), "basket");
 });
 
-builder.Services.AddGrpc();
+builder.Services.AddGrpc(options =>
+{
+    options.Interceptors.Add<ErrorHandlingInterceptor>();
+});
+
 builder.Services.AddGrpcReflection();
+
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenLocalhost(5007, o => o.Protocols = HttpProtocols.Http2);

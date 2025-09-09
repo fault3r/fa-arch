@@ -21,7 +21,8 @@ namespace BasketService.Api.Application.Services
                     Message = "success.",
                 },
             };
-            response.Items.Add(items);
+            if(items.Any())
+                response.Items.Add(items);            
             return await Task.FromResult(response);
         }
 
@@ -50,8 +51,9 @@ namespace BasketService.Api.Application.Services
 
         public override async Task<CreateResponse> Create(CreateRequest request, ServerCallContext context)
         {
-            // Data Validation
-            request.Item.Id = new Random().Next(1000, 9999);       
+            request.Item.Id = new Random().Next(1000, 9999);
+            if (request.Item.Name == string.Empty)
+                request.Item.Name = "no-name";
             var item = database.Items.Insert(request.Item);
             return await Task.FromResult(new CreateResponse
             {
@@ -66,6 +68,8 @@ namespace BasketService.Api.Application.Services
 
         public override async Task<UpdateResponse> Update(UpdateRequest request, ServerCallContext context)
         {
+            if (request.Item.Name == string.Empty)
+                request.Item.Name = "no-name";
             bool item = database.Items.Update(request.Item);
             if (!item)
                 return await Task.FromResult(new UpdateResponse
