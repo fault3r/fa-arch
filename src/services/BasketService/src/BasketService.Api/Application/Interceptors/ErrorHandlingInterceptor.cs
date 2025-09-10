@@ -15,8 +15,9 @@ namespace BasketService.Api.Application.Interceptors
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"***ERROR: {ex.Message}");
-                throw new RpcException(new Status(StatusCode.Internal, "Internal Server Error!"));
+                Console.WriteLine($"*Error: {ex.Message}");
+                throw new RpcException(
+                    new Status(StatusCode.Internal, "Internal Server Error!"));
             }      
         }
     }
