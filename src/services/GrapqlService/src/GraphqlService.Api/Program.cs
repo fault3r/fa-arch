@@ -1,9 +1,10 @@
-using GraphqlService.Api.Application.Services;
+
+using GraphqlService.Api.GraphQL.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddGraphQLServer()
-    .AddQueryType<GraphqlCalc>();
+    .AddQueryType<Query>();
 
 var app = builder.Build();
 
