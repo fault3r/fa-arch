@@ -46,13 +46,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "HotChocolate.AspNetCore": {
               "target": "Package",
-              "version": "[8.0.18, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[15.1.10, )"
             }
           },
           "imports": [
