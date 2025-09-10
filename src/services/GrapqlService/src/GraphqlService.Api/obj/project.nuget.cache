@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DxAuM6DPbVc=",
+  "dgSpecHash": "oIPT06fdcwU=",
   "success": true,
   "projectFilePath": "/home/hamed-damavandi/Documents/fa-arch/src/services/GrapqlService/src/GraphqlService.Api/GraphqlService.Api.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "/home/hamed-damavandi/.nuget/packages/hotchocolate/15.1.10/hotchocolate.15.1.10.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/hotchocolate.abstractions/15.1.10/hotchocolate.abstractions.15.1.10.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/hotchocolate.aspnetcore/15.1.10/hotchocolate.aspnetcore.15.1.10.nupkg.sha512",
+    "/home/hamed-damavandi/.nuget/packages/hotchocolate.aspnetcore.authorization/15.1.10/hotchocolate.aspnetcore.authorization.15.1.10.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/hotchocolate.authorization/15.1.10/hotchocolate.authorization.15.1.10.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/hotchocolate.costanalysis/15.1.10/hotchocolate.costanalysis.15.1.10.nupkg.sha512",
     "/home/hamed-damavandi/.nuget/packages/hotchocolate.execution/15.1.10/hotchocolate.execution.15.1.10.nupkg.sha512",

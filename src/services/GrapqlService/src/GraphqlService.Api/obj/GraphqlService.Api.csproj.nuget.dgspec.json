@@ -49,6 +49,10 @@
             "HotChocolate.AspNetCore": {
               "target": "Package",
               "version": "[15.1.10, )"
+            },
+            "HotChocolate.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[15.1.10, )"
             }
           },
           "imports": [
