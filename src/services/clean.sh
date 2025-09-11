@@ -1,7 +1,7 @@
 #!/bin/bash
 
 solutions=(
-  "BasketService/BasketService.sln"
+  "GrpcService/GrpcService.sln"
   "GrapqlService/GraphqlService.sln"
   "ItemService/ItemService.sln"
   "JwtService/JwtService.sln"

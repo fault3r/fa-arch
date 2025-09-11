@@ -1,7 +1,7 @@
 using System;
-using BasketService.Protos;
+using GrpcService.Protos;
 using Grpc.Net.Client;
-using static BasketService.Protos.BasketService;
+using static GrpcService.Protos.GrpcService;
 
 namespace ItemService.Infrastructure.Services
 {
@@ -9,12 +9,12 @@ namespace ItemService.Infrastructure.Services
 
     public class GrpcService
     {
-        private readonly BasketServiceClient grpcClient;
+        private readonly GrpcServiceClient grpcClient;
 
         public GrpcService()
         {
             var channel = GrpcChannel.ForAddress("http://localhost:5007");
-            grpcClient = new BasketServiceClient(channel);
+            grpcClient = new GrpcServiceClient(channel);
         }
 
         public async Task<IEnumerable<GrpcItem>> GetAllAsync()

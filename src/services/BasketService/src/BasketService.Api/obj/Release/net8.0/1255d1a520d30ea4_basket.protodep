@@ -1,2 +1,0 @@
-obj/Release/net8.0/Protos/Basket.cs \
-obj/Release/net8.0/Protos/BasketGrpc.cs: Protos/basket.proto
